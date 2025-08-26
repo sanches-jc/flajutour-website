@@ -1,5 +1,3 @@
-# flajutour-website
-Repositório do site da agência de turismo Flajutou
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
