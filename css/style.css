@@ -1,0 +1,342 @@
+/* Definição das variáveis e importação da fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root {
+  --blue: #009DE2;      /* marca - azul */
+  --orange: #FC7F39;    /* marca - laranja */
+  --dark: #3C3C3C;      /* texto principal */
+  --muted: #6b6b6b;     /* texto secundário */
+  --bg: #f6f7f8;        /* fundo levemente cinza */
+  
+  /* Variáveis de compatibilidade para a seção 'Quem Somos' */
+  --cor-principal: var(--blue);
+  --cor-secundaria: var(--orange);
+  --cor-fundo: var(--bg);
+  --cor-neutra-escura: var(--muted);
+
+  --container: 1100px;
+  --radius: 12px;
+  --gap: 20px;
+  --btn-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--dark);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+/* Header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.main-nav a:hover {
+  color: var(--blue);
+}
+
+.language-switcher {
+  margin-left: 1.5rem;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.language-switcher img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.language-switcher img.active,
+.language-switcher img:hover {
+  transform: scale(1.15);
+}
+
+/* Botões */
+.btn-primary {
+  background: var(--orange);
+  color: #fff !important; /* !important para garantir que sobreponha o .main-nav a */
+  padding: 10px 16px;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(252, 127, 57, 0.12);
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(252, 127, 57, 0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Seções Gerais */
+.section {
+  padding: 36px 0;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--blue);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, #fff, #fbfcfd);
+  padding: 48px 0;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+  align-items: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 157, 226, 0.08);
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.05;
+  margin: 12px 0 8px;
+  color: var(--dark);
+  font-weight: 800;
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-size: 18px;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* Grid de Serviços */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.service {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+}
+
+.service h3 {
+  color: var(--blue);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.service p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Seção Quem Somos */
+.secao-quem-somos .grid-socios {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+  text-align: center;
+}
+
+.secao-quem-somos .socio-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+}
+
+.secao-quem-somos .socio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.secao-quem-somos .socio-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  border: 6px solid var(--cor-secundaria);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.secao-quem-somos .socio-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--cor-principal);
+  font-size: 1.7rem;
+}
+
+.secao-quem-somos .socio-card p {
+  color: var(--cor-neutra-escura);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Formulário de Contato */
+form {
+  max-width: 720px;
+  margin: 18px auto;
+  display: grid;
+  gap: 12px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid #f0f0f0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+input,
+textarea,
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  font-size: 15px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0, 157, 226, 0.15);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #eee;
+  padding: 28px 0;
+  margin-top: 28px;
+  background: #fff;
+  color: var(--muted);
+  text-align: center;
+}
+
+.site-footer p {
+    margin: 4px 0;
+}
+
+.site-footer a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 1000px) {
+  .hero-inner {
+    padding: 0 18px;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .main-nav {
+    display: none; /* Em telas menores, o menu some */
+  }
+  .form-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .section h2 {
+        font-size: 30px;
+    }
+}
