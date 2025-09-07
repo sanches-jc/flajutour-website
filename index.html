@@ -111,51 +111,43 @@
 
   <!-- Código de integração -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    (function () {
       const SUPABASE_URL = 'https://wrfjlcskhehqdhjnhvrcc.supabase.co';
       const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4';
 
-      // Cria o cliente
+      // IIFE: evita redeclarações globais se o script for carregado duas vezes
       const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-   // Inicializa o Supabase
-const supabaseClient = supabase.createClient(
-  "https://wrfjlcskehqdhjnhvrcc.supabase.co", // substitua pelo seu
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4" // substitua pela anon key do Supabase
-);
+      const contactForm = document.getElementById('contactForm');
+      if (!contactForm) return;
 
-const contactForm = document.getElementById('contactForm');
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-contactForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
+        const formData = new FormData(contactForm);
+        const nome = formData.get('nome');
+        const email = formData.get('email');
+        const cliente = formData.get('cliente');
+        const mensagem = formData.get('mensagem');
 
-  const formData = new FormData(contactForm);
-  const nome = formData.get('nome');
-  const email = formData.get('email');
-  const cliente = formData.get('cliente');
-  const mensagem = formData.get('mensagem');
+        try {
+          const { data, error } = await supabaseClient
+            .from('reservas')
+            .insert([{ nome, email, cliente, mensagem }]);
 
-  console.log("Enviando dados:", { nome, email, cliente, mensagem }); // Debug
-
-  try {
-    const { data, error } = await supabaseClient
-      .from('reservas')
-      .insert([{ nome, email, cliente, mensagem }]);
-
-    if (error) {
-      console.error('Erro Supabase:', error);
-      alert('Ocorreu um erro ao enviar a sua mensagem. Tente novamente.');
-    } else {
-      console.log('Reserva enviada com sucesso!', data);
-      alert('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.');
-      contactForm.reset();
-    }
-  } catch (err) {
-    console.error('Erro inesperado:', err);
-    alert('Erro inesperado. Verifique sua conexão.');
-  }
-});
-
+          if (error) {
+            console.error('Erro Supabase:', error);
+            alert('Ocorreu um erro ao enviar a sua mensagem. Tente novamente.');
+          } else {
+            alert('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.');
+            contactForm.reset();
+          }
+        } catch (err) {
+          console.error('Erro inesperado:', err);
+          alert('Erro inesperado. Verifique sua conexão.');
+        }
+      });
+    })();
   </script>
 </body>
 </html>
