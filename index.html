@@ -157,6 +157,14 @@
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // teste simples de conectividade (vai falhar se houver erro de rede/CORS)
+(function () {
+  const SUPABASE_URL = 'https://wrfjlcskehqdhjnhvrcc.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4   ';
+
+  // cria cliente Supabase
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // teste simples de conectividade (vai falhar se houver erro de rede/CORS)
   (async function testSupabase() {
     try {
       const url = SUPABASE_URL + '/rest/v1';
@@ -176,8 +184,8 @@
     const formData = new FormData(contactForm);
     const nome = formData.get('nome');
     const email = formData.get('email');
-    const telefone = formData.get('telefone');
-    const whatsapp = formData.get('whatsapp');
+    const telefoneFixo = formData.get('telefone_fixo');
+    const telefoneWhatsapp = formData.get('telefone_whatsapp');
     const cliente = formData.get('cliente');
     const adultos = formData.get('adultos');
     const criancas = formData.get('criancas');
@@ -193,8 +201,8 @@
         .insert([{ 
           nome, 
           email, 
-          telefone, 
-          whatsapp,
+          telefone_fixo: telefoneFixo, 
+          telefone_whatsapp: telefoneWhatsapp,
           cliente,
           adultos,
           criancas,
@@ -222,6 +230,16 @@
       alert('Erro inesperado. Verifique console e a conexão.');
     }
   });
+})();
+
+(async () => {
+  try {
+    const url = 'https://wrfjlcskehqdhjnhvrcc.supabase.co/rest/v1?select=1';
+    const r = await fetch(url, { method: 'GET', headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4' } });
+    console.log('status', r.status, await r.text());
+  } catch (e) {
+    console.error('fetch error:', e);
+  }
 })();
 
 (async () => {
