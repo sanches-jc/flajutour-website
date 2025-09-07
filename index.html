@@ -93,18 +93,48 @@
       <h2 data-translate="contactTitle">Reservas & Orçamentos</h2>
       <p data-translate="contactSubtitle" style="text-align: center; max-width: 600px; margin: -1rem auto 2rem;">Preencha o formulário e nossa equipe entrará em contato em breve para montar um pacote sob medida para você.</p>
       <form id="contactForm">
-        <div class="form-grid">
-          <input type="text" name="nome" data-translate="formName" placeholder="Seu nome" required>
-          <input type="email" name="email" data-translate="formEmail" placeholder="Seu e-mail" required>
-        </div>
-        <select name="cliente" data-translate="formClientType" required>
-          <option value="" data-translate="selectClientType">Selecione o tipo de cliente</option>
-          <option value="pf" data-translate="pf">Pessoa Física</option>
-          <option value="pj" data-translate="pj">Empresa</option>
-        </select>
-        <textarea name="mensagem" data-translate="formMessage" placeholder="Detalhes adicionais (data da viagem, número de pessoas, etc.)" rows="5"></textarea>
-        <button type="submit" class="btn-primary" data-translate="formSubmit">Enviar Pedido de Proposta</button>
-      </form>
+  <div class="form-grid">
+    <input type="text" name="nome" data-translate="formName" placeholder="Seu nome" required>
+    <input type="email" name="email" data-translate="formEmail" placeholder="Seu e-mail" required>
+  </div>
+  <div class="form-grid">
+    <input type="tel" name="telefone" data-translate="formPhone" placeholder="Seu telefone (com DDD)" required>
+    <div class="field-group">
+      <label data-translate="hasWhatsappLabel">Possui WhatsApp?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="whatsapp" value="sim" data-translate="whatsappYes" required> Sim</label>
+        <label><input type="radio" name="whatsapp" value="nao" data-translate="whatsappNo"> Não</label>
+      </div>
+    </div>
+  </div>
+  <select name="cliente" data-translate="formClientType" required>
+    <option value="" data-translate="selectClientType">Selecione o tipo de cliente</option>
+    <option value="pf" data-translate="pf">Pessoa Física</option>
+    <option value="pj" data-translate="pj">Empresa</option>
+  </select>
+  <div class="form-grid">
+    <input type="number" name="adultos" placeholder="Número de adultos" min="1" required>
+    <input type="number" name="criancas" placeholder="Número de crianças" min="0">
+  </div>
+  <select name="interesse" required>
+    <option value="">Principal interesse na estadia</option>
+    <option value="trabalho">Trabalho</option>
+    <option value="diversao">Diversão</option>
+    <option value="tratamento-saude">Tratamento de Saúde</option>
+  </select>
+  <select name="acomodacao" required>
+    <option value="">Tipo de acomodação de preferência</option>
+    <option value="hotel">Hotel</option>
+    <option value="flat">Flat</option>
+    <option value="airbnb">Airbnb</option>
+  </select>
+  <div class="form-grid">
+    <input type="date" name="chegada" required>
+    <input type="date" name="partida" required>
+  </div>
+  <textarea name="mensagem" data-translate="formMessage" placeholder="Observações adicionais" rows="5"></textarea>
+  <button type="submit" class="btn-primary" data-translate="formSubmit">Enviar Pedido de Proposta</button>
+</form>
     </section>
   </main>
 
