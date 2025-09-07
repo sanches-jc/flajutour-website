@@ -149,72 +149,90 @@
 
   <!-- Código de integração (mais logging e teste de conexão) -->
   <script>
-    (function () {
-      const SUPABASE_URL = 'https://wrfjlcskehqdhjnhvrcc.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4   ';
+   (function () {
+  const SUPABASE_URL = 'https://wrfjlcskehqdhjnhvrcc.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4   ';
 
-      // cria cliente Supabase
-      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // cria cliente Supabase
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-      // teste simples de conectividade (vai falhar se houver erro de rede/CORS)
-      (async function testSupabase() {
-        try {
-          const url = SUPABASE_URL + '/rest/v1';
-          const res = await fetch(url, { method: 'GET', mode: 'cors' });
-          console.log('Teste Supabase - fetch para', url, 'status:', res.status);
-        } catch (e) {
-          console.error('Falha ao conectar ao Supabase (fetch):', e);
-          // Mostre aviso ao usuário (opcional)
-          // alert('Não foi possível conectar ao serviço. Verifique a URL do Supabase, CORS e sua conexão.');
+  // teste simples de conectividade (vai falhar se houver erro de rede/CORS)
+  (async function testSupabase() {
+    try {
+      const url = SUPABASE_URL + '/rest/v1';
+      const res = await fetch(url, { method: 'GET', mode: 'cors' });
+      console.log('Teste Supabase - fetch para', url, 'status:', res.status);
+    } catch (e) {
+      console.error('Falha ao conectar ao Supabase (fetch):', e);
+    }
+  })();
+
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const nome = formData.get('nome');
+    const email = formData.get('email');
+    const telefone = formData.get('telefone');
+    const whatsapp = formData.get('whatsapp');
+    const cliente = formData.get('cliente');
+    const adultos = formData.get('adultos');
+    const criancas = formData.get('criancas');
+    const interesse = formData.get('interesse');
+    const acomodacao = formData.get('acomodacao');
+    const chegada = formData.get('chegada');
+    const partida = formData.get('partida');
+    const mensagem = formData.get('mensagem');
+
+    try {
+      const { data, error } = await supabaseClient
+        .from('reservas')
+        .insert([{ 
+          nome, 
+          email, 
+          telefone, 
+          whatsapp,
+          cliente,
+          adultos,
+          criancas,
+          interesse,
+          acomodacao,
+          chegada,
+          partida,
+          mensagem 
+        }]);
+
+      if (error) {
+        console.error('Erro Supabase:', error);
+        if (error.message && error.message.toLowerCase().includes('failed to fetch')) {
+          alert('Erro de conexão com o servidor (CORS/rede). Verifique a URL do Supabase e as origens permitidas no painel.');
+        } else {
+          alert('Ocorreu um erro ao enviar a sua mensagem. Veja console para detalhes.');
         }
-      })();
-
-      const contactForm = document.getElementById('contactForm');
-      if (!contactForm) return;
-
-      contactForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(contactForm);
-        const nome = formData.get('nome');
-        const email = formData.get('email');
-        const cliente = formData.get('cliente');
-        const mensagem = formData.get('mensagem');
-
-        try {
-          const { data, error } = await supabaseClient
-            .from('reservas')
-            .insert([{ nome, email, cliente, mensagem }]);
-
-          if (error) {
-            console.error('Erro Supabase:', error);
-            // se for "Failed to fetch", provavelmente CORS/URL/rede
-            if (error.message && error.message.toLowerCase().includes('failed to fetch')) {
-              alert('Erro de conexão com o servidor (CORS/rede). Verifique a URL do Supabase e as origens permitidas no painel.');
-            } else {
-              alert('Ocorreu um erro ao enviar a sua mensagem. Veja console para detalhes.');
-            }
-          } else {
-            console.log('Reserva enviada:', data);
-            alert('Sua mensagem foi enviada com sucesso!');
-            contactForm.reset();
-          }
-        } catch (err) {
-          console.error('Erro inesperado ao enviar:', err);
-          alert('Erro inesperado. Verifique console e a conexão.');
-        }
-      });
-    })();
-
-    (async () => {
-      try {
-        const url = 'https://wrfjlcskehqdhjnhvrcc.supabase.co/rest/v1?select=1';
-        const r = await fetch(url, { method: 'GET', headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4' } });
-        console.log('status', r.status, await r.text());
-      } catch (e) {
-        console.error('fetch error:', e);
+      } else {
+        console.log('Reserva enviada:', data);
+        alert('Sua mensagem foi enviada com sucesso!');
+        contactForm.reset();
       }
-    })();
+    } catch (err) {
+      console.error('Erro inesperado ao enviar:', err);
+      alert('Erro inesperado. Verifique console e a conexão.');
+    }
+  });
+})();
+
+(async () => {
+  try {
+    const url = 'https://wrfjlcskehqdhjnhvrcc.supabase.co/rest/v1?select=1';
+    const r = await fetch(url, { method: 'GET', headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4' } });
+    console.log('status', r.status, await r.text());
+  } catch (e) {
+    console.error('fetch error:', e);
+  }
+})();
   </script>
 </body>
 </html>

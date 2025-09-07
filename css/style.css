@@ -252,65 +252,136 @@ body {
   line-height: 1.6;
 }
 
-/* Formulário de Contato */
+/* --- Melhorias de Estilo para o Formulário --- */
+/* --- Estilos para o novo layout do formulário --- */
+
+/* Ajusta a largura e centraliza o formulário */
 form {
-  max-width: 720px;
-  margin: 18px auto;
-  display: grid;
-  gap: 12px;
-  background: #fff;
-  padding: 2rem;
-  border-radius: var(--radius);
-  border: 1px solid #f0f0f0;
+    max-width: 720px; /* Mantém a largura máxima */
+    margin: 18px auto; /* Centraliza o formulário na página */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre as linhas */
+    background: #fff;
+    padding: 3rem;
+    border-radius: var(--radius);
+    border: 1px solid #f0f0f0;
 }
 
-.form-grid {
+/* Estilo para as novas linhas (form-row) */
+.form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 1.5rem;
+    align-items: center;
 }
 
-input,
-textarea,
-select {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #e6e6e6;
-  font-size: 15px;
-  width: 100%;
-  font-family: 'Inter', sans-serif;
+/* Otimiza campos de input e seleção para o novo layout */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Alinhamento do botão de envio */
+form button {
+    align-self: center; /* Centraliza o botão */
+    width: 100%;
+    max-width: 320px; /* Limita a largura do botão para melhor visual */
+    text-align: center;
+}
+
+/* Responsividade adicional para o formulário */
+@media (max-width: 600px) {
+    form {
+        padding: 1.5rem;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+}
+/* Ajuste no layout do formulário em telas maiores */
+form {
+    padding: 3rem; /* Aumenta o espaçamento interno */
+    gap: 1.5rem; /* Aumenta o espaço entre os campos */
+}
+
+/* Otimiza o layout de grade para maior elegância */
+.form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Estilo para os grupos de campos */
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.field-group .radio-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Ajustes visuais para campos de entrada e seletores */
+input, textarea, select {
+    padding: 14px;
+    border-radius: 12px; /* Cantos mais arredondados para um visual suave */
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    outline: none;
     border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(0, 157, 226, 0.15);
+    box-shadow: 0 0 0 4px rgba(0, 157, 226, 0.1);
 }
 
-/* Footer */
-.site-footer {
-  border-top: 1px solid #eee;
-  padding: 28px 0;
-  margin-top: 28px;
-  background: #fff;
-  color: var(--muted);
-  text-align: center;
+/* Estilo para os inputs de rádio (WhatsApp) */
+.radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--dark);
+    font-weight: 500;
 }
 
-.site-footer p {
-    margin: 4px 0;
+.radio-group input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+    cursor: pointer;
 }
 
-.site-footer a {
-    color: var(--blue);
-    text-decoration: none;
-    font-weight: 600;
+/* Ajuste na aparência dos inputs de data */
+input[type="date"] {
+    padding-right: 1.5rem; /* Espaço para o ícone do calendário */
 }
 
-.site-footer a:hover {
-    text-decoration: underline;
+/* Estilo para o botão de envio */
+form .btn-primary {
+    font-size: 1rem;
+    padding: 14px 24px;
+    margin-top: 1rem;
+    border-radius: 12px;
+}
+
+/* Responsividade adicional para o formulário */
+@media (max-width: 600px) {
+    form {
+        padding: 1.5rem;
+    }
 }
 
 /* Responsividade */
