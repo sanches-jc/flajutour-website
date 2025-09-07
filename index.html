@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -20,18 +20,26 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="#"><img src="assets/logo-flajutour.PNG" alt="Logo Flajutour" class="logo"></a>
-      <nav class="main-nav">
-        <a href="#home" data-translate="home">Home</a>
-        <a href="#servicos" data-translate="services">Serviços</a>
-        <a href="blog.html" data-translate="blog">Blog</a>
-        <a href="#quemsomos" data-translate="about">Quem Somos</a>
-        <a href="#contato" data-translate="reservations" class="btn-primary">Reservas & Orçamentos</a>
-        <div class="language-switcher">
-          <img src="https://flagcdn.com/br.svg" alt="Bandeira do Brasil" data-lang="pt" class="active">
-          <img src="https://flagcdn.com/us.svg" alt="Flag of United States" data-lang="en">
-          <img src="https://flagcdn.com/es.svg" alt="Bandera de España" data-lang="es">
-        </div>
-      </nav>
+<nav class="main-nav">
+  <a href="index.html" data-translate="home">Home</a>
+  <a href="sao-paulo.html" data-translate="saoPaulo">São Paulo</a>
+  <a href="negocios.html" data-translate="business">Negócios</a>
+  <a href="cultura.html" data-translate="culture">Cultura</a>
+  <a href="gastronomia.html" data-translate="gastronomy">Gastronomia</a>
+  <a href="health-and-care.html" data-translate="healthAndCare">Health and Care</a>
+  <a href="passagens.html" data-translate="flights">Passagens</a>
+  <a href="seguro-viagem.html" data-translate="travelInsurance">Seguro Viagem</a>
+  <a href="carros.html" data-translate="cars">Carros</a>
+  <a href="hoteis.html" data-translate="hotels">Hoteis</a>
+  <a href="blog.html" data-translate="blog">Blog</a>
+  <a href="quemsomos.html" data-translate="about">Quem Somos</a>
+  <a href="login.html" data-translate="login">Login</a>
+  <div class="language-switcher">
+    <img src="https://flagcdn.com/br.svg" alt="Bandeira do Brasil" data-lang="pt" class="active">
+    <img src="https://flagcdn.com/us.svg" alt="Flag of United States" data-lang="en">
+    <img src="https://flagcdn.com/es.svg" alt="Bandera de España" data-lang="es">
+  </div>
+</nav>
     </div>
   </header>
 
@@ -113,7 +121,7 @@
   <script>
     (function () {
       const SUPABASE_URL = 'https://wrfjlcskehqdhjnhvrcc.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4   ';
 
       // cria cliente Supabase
       const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
