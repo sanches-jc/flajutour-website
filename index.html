@@ -109,45 +109,45 @@
         <p><a href="#privacidade" data-translate="privacyLink">Política de Privacidade</a></p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.44.2/dist/umd/supabase.min.js"></script>
-    <script type="module">
-        // Configurações do Supabase
-        const SUPABASE_URL = 'https://wrfjlcskhehqdhjnhvrcc.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4';
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.44.2/dist/umd/supabase.min.js"></script>
+<script type="module">
+    // Configurações do Supabase
+    const SUPABASE_URL = 'https://wrfjlcskhehqdhjnhvrcc.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4';
 
-        // Inicializa o cliente Supabase
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Inicializa o cliente Supabase
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Seleciona o formulário de contato
-        const contactForm = document.getElementById('contactForm');
+    // Seleciona o formulário de contato
+    const contactForm = document.getElementById('contactForm');
 
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Previne o envio padrão do formulário
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Previne o envio padrão do formulário
 
-            // Coleta os dados do formulário
-            const formData = new FormData(contactForm);
-            const nome = formData.get('nome');
-            const email = formData.get('email');
-            const cliente = formData.get('cliente');
-            const mensagem = formData.get('mensagem');
+        // Coleta os dados do formulário
+        const formData = new FormData(contactForm);
+        const nome = formData.get('nome');
+        const email = formData.get('email');
+        const cliente = formData.get('cliente');
+        const mensagem = formData.get('mensagem');
 
-            // Insere os dados na tabela 'reservas' do Supabase
-            const { data, error } = await supabase
-                .from('reservas')
-                .insert([
-                    { nome, email, cliente, mensagem },
-                ]);
+        // Insere os dados na tabela 'reservas' do Supabase
+        const { data, error } = await supabase
+            .from('reservas')
+            .insert([
+                { nome, email, cliente, mensagem },
+            ]);
 
-            // Trata a resposta
-            if (error) {
-                console.error('Erro ao enviar a reserva:', error.message);
-                alert('Ocorreu um erro ao enviar a sua mensagem. Tente novamente.');
-            } else {
-                console.log('Reserva enviada com sucesso!', data);
-                alert('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.');
-                contactForm.reset(); // Limpa o formulário
-            }
-        });
-    </script>
+        // Trata a resposta
+        if (error) {
+            console.error('Erro ao enviar a reserva:', error.message);
+            alert('Ocorreu um erro ao enviar a sua mensagem. Tente novamente.');
+        } else {
+            console.log('Reserva enviada com sucesso!', data);
+            alert('Sua mensagem foi enviada com sucesso! Entraremos em contato em breve.');
+            contactForm.reset(); // Limpa o formulário
+        }
+    });
+</script>
 </body>
 </html>
