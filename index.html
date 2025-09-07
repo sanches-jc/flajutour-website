@@ -112,7 +112,7 @@
   <!-- Código de integração (mais logging e teste de conexão) -->
   <script>
     (function () {
-      const SUPABASE_URL = 'https://wrfjlcskhehqdhjnhvrcc.supabase.co';
+      const SUPABASE_URL = 'https://wrfjlcskehqdhjnhvrcc.supabase.co';
       const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4';
 
       // cria cliente Supabase
@@ -166,6 +166,16 @@
           alert('Erro inesperado. Verifique console e a conexão.');
         }
       });
+    })();
+
+    (async () => {
+      try {
+        const url = 'https://wrfjlcskehqdhjnhvrcc.supabase.co/rest/v1?select=1';
+        const r = await fetch(url, { method: 'GET', headers: { apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndyZmpsY3NrZWhxZGhqbmh2cmNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcxODMwODMsImV4cCI6MjA3Mjc1OTA4M30.dMhbJqCrNaFJWNzlUwRfjwkUBMxi53Mk1JZ-Lh9FIF4' } });
+        console.log('status', r.status, await r.text());
+      } catch (e) {
+        console.error('fetch error:', e);
+      }
     })();
   </script>
 </body>
