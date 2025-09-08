@@ -55,7 +55,57 @@
     gtag('config', 'G-PFEP9B1ERC');
   </script>
 </head>
-<body>
+<script>
+  // Máscara simples para telefone/WhatsApp
+  const telefoneInput = document.getElementById('telefone');
+  telefoneInput.addEventListener('input', e => {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 11) v = v.slice(0,11);
+    v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
+    v = v.replace(/(\d{5})(\d{4})$/, '$1-$2');
+    e.target.value = v;
+  });
+
+  // Envio do formulário via Fetch
+  const form = document.getElementById('contactForm');
+  const responseDiv = document.getElementById('formResponse');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const data = {
+      nome: form.nome.value,
+      telefone: form.telefone.value,
+      cliente: form.cliente.value,
+      interesse: form.interesse.value,
+      chegada: form.chegada.value,
+      partida: form.partida.value,
+      mensagem: form.mensagem.value
+    };
+
+    fetch('https://formspree.io/f/mlezryon', { // Substitua pela sua URL Formspree ou backend
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(res => {
+      if(res.ok){
+        responseDiv.style.color = 'green';
+        responseDiv.innerText = "Mensagem enviada com sucesso!";
+        form.reset();
+      } else {
+        throw new Error('Erro no envio');
+      }
+    })
+    .catch(err => {
+      responseDiv.style.color = 'red';
+      responseDiv.innerText = "Ocorreu um erro. Tente novamente mais tarde.";
+      console.error(err);
+    });
+  });
+</script>
+
+  <body>
   <!-- Header -->
   <div id="header-placeholder"></div>
 
