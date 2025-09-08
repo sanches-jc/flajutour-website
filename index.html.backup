@@ -195,12 +195,12 @@
       <div class="hero-inner">
         <span class="tag">Turismo Receptivo em São Paulo</span>
         <h1 data-translate="heroTitle">São Paulo te espera. Nós te guiamos.</h1>
-        <p data-translate="heroSubtitle">Especialistas em turismo de negócios, saúde e cultura em São Paulo. Nossa cidade, sua experiência.</p>
+        <p data-translate="heroSubtitle">Especialistas em turismo de empresarial, cultura, gastronomia e healt and care em São Paulo. Nossa cidade, sua experiência.</p>
       </div>
     </section>
 
     <section id="servicos" class="section container">
-      <h2 data-translate="servicesTitle">Nossos Serviços Detalhados</h2>
+      <h2 data-translate="servicesTitle">Nossos Serviços</h2>
       <div class="grid-3">
         <div class="service">
           <h3 data-translate="eventTitle">Turismo de Eventos</h3>
@@ -208,8 +208,8 @@
         </div>
         <div class="service">
           <!-- removido termo "Logística para Bem-Estar" — título ajustado -->
-          <h3 data-translate="healthAndCareTitle">Logística para Bem-Estar</h3>
-          <p data-translate="healthAndCareDesc">Oferecemos suporte completo e humanizado para sua estadia, cuidando de toda a logística necessária para quem busca bem‑estar na cidade.</p>
+          <h3 data-translate="healthAndCareTitle">Logística para Health and Care</h3>
+          <p data-translate="healthAndCareDesc">Oferecemos suporte completo e humanizado para sua estadia, cuidando de toda a logística necessária para quem busca serviços de saude e bem estar na cidade.</p>
         </div>
         <div class="service">
           <h3 data-translate="culturalTitle">Turismo Cultural</h3>
