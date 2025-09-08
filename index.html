@@ -22,30 +22,6 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- JSON-LD TravelAgency -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Flajutour",
-    "url": "https://www.flajutour.com.br",
-    "logo": "https://www.flajutour.com.br/assets/logo.png",
-    "sameAs": [
-      "https://www.facebook.com/flajutour",
-      "https://www.instagram.com/flajutour"
-    ],
-    "description": "Turismo receptivo personalizado em São Paulo com foco em negócios, saúde e cultura.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "São Paulo",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
-    "telephone": "+551123675909",
-    "email": "contato@flajutour.com.br"
-  }
-  </script>
-
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
   <script>
@@ -55,49 +31,8 @@
     gtag('config', 'G-PFEP9B1ERC');
   </script>
 </head>
-<script>
-  const telefoneInput = document.getElementById('telefone');
 
-  // Máscara de telefone
-  telefoneInput.addEventListener('input', e => {
-    let v = e.target.value.replace(/\D/g,'');
-    if(v.length > 11) v = v.slice(0,11);
-    v = v.replace(/^(\d{2})(\d)/,'($1) $2');
-    v = v.replace(/(\d{5})(\d{4})$/,'$1-$2');
-    e.target.value = v;
-  });
-
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const nome = form.nome.value;
-    const telefone = form.telefone.value;
-    const cliente = form.cliente.value;
-    const interesse = form.interesse.value;
-    const chegada = form.chegada.value;
-    const partida = form.partida.value;
-    const mensagem = form.mensagem.value;
-
-    const text = `Olá! Gostaria de solicitar um pacote de turismo.\n\n` +
-                 `Nome: ${nome}\n` +
-                 `Telefone: ${telefone}\n` +
-                 `Tipo de cliente: ${cliente}\n` +
-                 `Interesse: ${interesse}\n` +
-                 `Chegada: ${chegada}\n` +
-                 `Partida: ${partida}\n` +
-                 `Observações: ${mensagem}`;
-
-    const encodedText = encodeURIComponent(text);
-    const whatsappNumber = '5511911293987';
-    const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-    window.open(url, '_blank');
-  });
-</script>
-
-
-  <body>
+<body>
   <!-- Header -->
   <div id="header-placeholder"></div>
 
@@ -154,50 +89,95 @@
     <section id="contato" class="section container">
       <h2>Reservas & Orçamentos</h2>
       <p style="text-align:center; max-width:600px; margin:-1rem auto 2rem;">Preencha o formulário e nossa equipe entrará em contato em breve para montar um pacote sob medida para você.</p>
-    
-<div id="formResponse" style="text-align:center; margin-top:1rem; font-weight:600;"></div>
-<form id="contactForm">
-  <div class="form-grid">
-    <input type="text" name="nome" placeholder="Seu nome" required>
-    <input type="tel" id="telefone" name="telefone" placeholder="(11) 91129-3987" required>
-  </div>
+      
+      <div id="formResponse" style="text-align:center; margin-top:1rem; font-weight:600;"></div>
+      
+      <form id="contactForm">
+        <div class="form-grid">
+          <input type="text" name="nome" placeholder="Seu nome" required>
+          <input type="tel" id="telefone" name="telefone" placeholder="(11) 91129-3987" required>
+        </div>
 
-  <div class="form-grid">
-    <select name="cliente" required>
-      <option value="">Selecione o tipo de cliente</option>
-      <option value="pf">Pessoa Física</option>
-      <option value="pj">Empresa</option>
-    </select>
-    <select name="interesse" required>
-      <option value="">Principal interesse na estadia</option>
-      <option value="trabalho">Trabalho</option>
-      <option value="diversao">Diversão</option>
-      <option value="tratamento-saude">Tratamento de Saúde</option>
-    </select>
-  </div>
+        <div class="form-grid">
+          <select name="cliente" required>
+            <option value="">Selecione o tipo de cliente</option>
+            <option value="pf">Pessoa Física</option>
+            <option value="pj">Empresa</option>
+          </select>
+          <select name="interesse" required>
+            <option value="">Principal interesse na estadia</option>
+            <option value="trabalho">Trabalho</option>
+            <option value="diversao">Diversão</option>
+            <option value="tratamento-saude">Tratamento de Saúde</option>
+          </select>
+        </div>
 
-  <div class="form-grid">
-    <input type="date" name="chegada" required>
-    <input type="date" name="partida" required>
-  </div>
+        <div class="form-grid">
+          <input type="date" name="chegada" required>
+          <input type="date" name="partida" required>
+        </div>
 
-  <textarea name="mensagem" placeholder="Observações adicionais" rows="5"></textarea>
-  
-  <button type="submit" class="btn-primary">Enviar Pedido de Proposta</button>
-</form>
-
+        <textarea name="mensagem" placeholder="Observações adicionais" rows="5"></textarea>
+        
+        <button type="submit" class="btn-primary">Enviar Pedido de Proposta</button>
+      </form>
     </section>
   </main>
 
   <!-- CTA WhatsApp fixo -->
   <a href="https://wa.me/5511911293987" target="_blank" class="btn-whatsapp" aria-label="Entrar em contato pelo WhatsApp">WhatsApp</a>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
     <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
     <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
   </footer>
 
+  <!-- Scripts -->
   <script src="load-header.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const telefoneInput = document.getElementById('telefone');
+      const form = document.getElementById('contactForm');
+
+      // Máscara de telefone
+      telefoneInput.addEventListener('input', e => {
+        let v = e.target.value.replace(/\D/g,'');
+        if(v.length > 11) v = v.slice(0,11);
+        v = v.replace(/^(\d{2})(\d)/,'($1) $2');
+        v = v.replace(/(\d{5})(\d{4})$/,'$1-$2');
+        e.target.value = v;
+      });
+
+      // Envio para WhatsApp
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const nome = form.nome.value.trim();
+        const telefone = form.telefone.value.trim();
+        const cliente = form.cliente.value.trim();
+        const interesse = form.interesse.value.trim();
+        const chegada = form.chegada.value.trim();
+        const partida = form.partida.value.trim();
+        const mensagem = form.mensagem.value.trim();
+
+        const text = `Olá! Gostaria de solicitar um pacote de turismo.\n\n` +
+                     `Nome: ${nome}\n` +
+                     `Telefone: ${telefone}\n` +
+                     `Tipo de cliente: ${cliente}\n` +
+                     `Interesse: ${interesse}\n` +
+                     `Chegada: ${chegada}\n` +
+                     `Partida: ${partida}\n` +
+                     `Observações: ${mensagem}`;
+
+        const encodedText = encodeURIComponent(text);
+        const whatsappNumber = '5511911293987';
+        const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+        window.open(url, '_blank');
+      });
+    });
+  </script>
 </body>
 </html>
