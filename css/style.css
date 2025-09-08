@@ -254,7 +254,57 @@ body {
 
 /* --- Melhorias de Estilo para o Formulário --- */
 /* --- Estilos para o novo layout do formulário --- */
+/* === Ajustes finos do formulário (uniformização de espaçamentos) === */
+form {
+  display: grid;
+  gap: 1.25rem;               /* espaçamento vertical entre blocos */
+}
 
+/* Grelha padrão (onde há 2 campos lado a lado) */
+.form-grid {
+  display: grid;
+  gap: 1.25rem;               /* espaçamento horizontal/vertical entre células */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Linha de contato: Telefone + WhatsApp
+   Telefone ligeiramente menor para um balanceamento mais elegante */
+.form-grid--contact {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+/* Empilha em telas menores */
+@media (max-width: 768px) {
+  .form-grid--contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Refinos de agrupamento e tipografia */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;                /* distância entre label e input */
+}
+
+.field-label {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Inputs com leve ajuste para ficar mais “premium” */
+input, select, textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  transition: border-color .25s, box-shadow .25s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(0, 157, 226, 0.08);
+}
 /* Ajusta a largura e centraliza o formulário */
 form {
     max-width: 720px; /* Mantém a largura máxima */
