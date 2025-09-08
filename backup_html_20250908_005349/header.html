@@ -1,0 +1,67 @@
+<!-- header.html - cabeçalho compartilhado -->
+<style>
+  .site-header{
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 40;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .site-header .header-inner{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    padding:0.6rem 1rem;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .site-header .logo{ height:44px; display:block; flex-shrink:0; }
+
+  .primary-nav {
+    display:flex; align-items:center; gap:1rem; flex-wrap: nowrap; white-space: nowrap; margin-left: 1.25rem;
+  }
+  .primary-nav a { color:#fff; text-decoration:none; font-weight:600; padding:6px 8px; flex-shrink:0; text-shadow:0 1px 2px rgba(0,0,0,0.6); }
+
+  .btn-login { background:#ff7a2d; color:#fff; padding:8px 12px; border-radius:8px; font-weight:700; text-decoration:none; }
+
+  .hamburger { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; background:rgba(0,0,0,0.28); border-radius:8px; cursor:pointer; margin-left:8px; z-index:90; }
+  .hamburger span, .hamburger span::before, .hamburger span::after { display:block; background:#fff; height:2px; width:18px; border-radius:2px; position:relative; }
+  .hamburger span::before, .hamburger span::after { content:""; position:absolute; left:0; }
+  .hamburger span::before{ top:-6px; } .hamburger span::after{ top:6px; }
+
+  .mobile-nav { display:none; position:absolute; top:64px; right:12px; background:rgba(0,0,0,0.92); padding:0.8rem; border-radius:8px; flex-direction:column; gap:.6rem; min-width:220px; z-index:95; box-shadow:0 6px 18px rgba(0,0,0,0.35); }
+  .mobile-nav.open { display:flex; }
+  .mobile-nav a { color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; display:block; }
+  .mobile-nav a:hover { background: rgba(255,255,255,0.04); }
+</style>
+
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="index.html"><img src="assets/logo-flajutour.PNG" alt="Logo Flajutour" class="logo"></a>
+
+    <nav class="primary-nav" role="navigation" aria-label="Menu principal">
+      <a href="index.html" data-core="1">Home</a>
+      <a href="sao-paulo.html" data-core="1">São Paulo</a>
+      <a href="negocios.html" data-core="1">Negócios</a>
+      <a href="cultura.html" data-core="1">Cultura</a>
+      <a href="gastronomia.html" data-core="1">Gastronomia</a>
+      <a href="health-and-care.html" data-core="1">Health and Care</a>
+    </nav>
+
+    <div style="margin-left:auto; display:flex; gap:0.6rem; align-items:center;">
+      <a href="login.html" class="btn-login">Login</a>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" type="button"><span></span></button>
+    </div>
+
+    <nav class="mobile-nav" role="navigation" aria-label="Menu móvel">
+      <a href="passagens-aereas.html">Passagens Aéreas</a>
+      <a href="seguro-viagem.html">Seguro Viagem</a>
+      <a href="alugue-um-carro.html">Alugue um Carro</a>
+      <a href="reserve-hotel.html">Reserve seu Hotel</a>
+      <a href="quemsomos.html">Quem Somos</a>
+      <a href="politica-privacidade.html">Política de Privacidade</a>
+    </nav>
+  </div>
+</header>

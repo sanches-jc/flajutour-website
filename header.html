@@ -1,0 +1,96 @@
+<!-- header.html - cabeçalho compartilhado (corrigido) -->
+<style>
+  :root{ --header-h:72px; --accent:#ff7a2d; --text-dark:#1e2a33; }
+
+  /* espaço reservado no body para o header fixo */
+  .has-fixed-header { padding-top: var(--header-h); }
+
+  .site-header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    z-index: 1000;
+    display:block;
+    transition: background .22s ease, color .18s ease, box-shadow .2s ease;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+    background: #ffffff; /* padrão (subpáginas): fundo claro, textos escuros */
+  }
+  .site-header .header-inner{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    padding:0 1rem;
+    justify-content: space-between;
+  }
+  .site-header .logo{ height:44px; display:block; flex-shrink:0; }
+
+  /* nav padrão (texto escuro) */
+  .primary-nav {
+    display:flex; align-items:center; gap:1rem; flex-wrap: nowrap; white-space: nowrap; margin-left: 1rem;
+  }
+  .primary-nav a { color: var(--text-dark); text-decoration:none; font-weight:600; padding:6px 8px; flex-shrink:0; }
+
+  .btn-login { background: var(--accent); color:#fff; padding:8px 12px; border-radius:8px; font-weight:700; text-decoration:none; }
+
+  .hamburger { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; background:rgba(0,0,0,0.06); border-radius:8px; cursor:pointer; margin-left:8px; z-index:110; border: 0; }
+  .hamburger span, .hamburger span::before, .hamburger span::after { display:block; background:var(--text-dark); height:2px; width:18px; border-radius:2px; position:relative; }
+  .hamburger span::before, .hamburger span::after { content:""; position:absolute; left:0; }
+  .hamburger span::before{ top:-6px; } .hamburger span::after{ top:6px; }
+
+  .mobile-nav { display:none; position:absolute; top:var(--header-h); right:12px; background:rgba(0,0,0,0.92); padding:0.8rem; border-radius:8px; flex-direction:column; gap:.6rem; min-width:220px; z-index:995; box-shadow:0 6px 18px rgba(0,0,0,0.35); }
+  .mobile-nav.open { display:flex; }
+  .mobile-nav a { color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; display:block; }
+  .mobile-nav a:hover { background: rgba(255,255,255,0.04); }
+
+  /* VARIANTE TRANSPARENTE (para páginas com hero) */
+  .site-header.transparent {
+    background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: none;
+  }
+  .site-header.transparent .primary-nav a,
+  .site-header.transparent .hamburger span,
+  .site-header.transparent .btn-login { color: #fff; }
+  .site-header.transparent .hamburger { background: rgba(0,0,0,0.28); }
+  .site-header.transparent .hamburger span,
+  .site-header.transparent .hamburger span::before,
+  .site-header.transparent .hamburger span::after { background: #fff; }
+
+  /* responsividade (ajustes mínimos) */
+  @media (max-width:920px){
+    .primary-nav { gap:0.6rem; margin-left: .6rem; }
+  }
+</style>
+
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="index.html"><img src="assets/logo-flajutour.PNG" alt="Logo Flajutour" class="logo"></a>
+
+    <nav class="primary-nav" role="navigation" aria-label="Menu principal">
+      <a href="index.html" data-core="1">Home</a>
+      <a href="sao-paulo.html" data-core="1">São Paulo</a>
+      <a href="negocios.html" data-core="1">Negócios</a>
+      <a href="cultura.html" data-core="1">Cultura</a>
+      <a href="gastronomia.html" data-core="1">Gastronomia</a>
+      <a href="health-and-care.html" data-core="1">Health and Care</a>
+    </nav>
+
+    <div style="margin-left:auto; display:flex; gap:0.6rem; align-items:center;">
+      <a href="login.html" class="btn-login">Login</a>
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" type="button"><span></span></button>
+    </div>
+
+    <nav class="mobile-nav" role="navigation" aria-label="Menu móvel">
+      <a href="passagens-aereas.html">Passagens Aéreas</a>
+      <a href="seguro-viagem.html">Seguro Viagem</a>
+      <a href="alugue-um-carro.html">Alugue um Carro</a>
+      <a href="reserve-hotel.html">Reserve seu Hotel</a>
+      <a href="quemsomos.html">Quem Somos</a>
+      <a href="politica-privacidade.html">Política de Privacidade</a>
+    </nav>
+  </div>
+</header>
