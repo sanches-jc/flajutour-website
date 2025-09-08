@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -9,6 +9,117 @@
 
   <!-- Hero-specific styles for homepage -->
   <style>
+    /* Cabeçalho translúcido sobre a imagem */
+    .site-header{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .site-header .header-inner{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      padding:0.6rem 1rem;
+      flex-wrap: nowrap;
+    }
+    .site-header .logo{ height:44px; display:block; flex-shrink:0; }
+
+    /* Nav principal (linha única) */
+    .primary-nav {
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      margin-left: 1.25rem;
+    }
+    .primary-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight:600;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      padding: 6px 8px;
+      flex-shrink:0;
+    }
+
+    /* botão login na linha principal */
+    .btn-login {
+      background: #ff7a2d;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight:700;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    }
+
+    /* botão hamburger (agora sempre visível) */
+    .hamburger {
+      display: inline-flex; /* mostrar sempre */
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      background: rgba(0,0,0,0.28);
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-left: 8px;
+      z-index: 90;
+      position: relative;
+    }
+    .hamburger span,
+    .hamburger span::before,
+    .hamburger span::after {
+      display: block;
+      background: #fff;
+      height: 2px;
+      width: 18px;
+      border-radius: 2px;
+      position: relative;
+    }
+    .hamburger span::before,
+    .hamburger span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after  { top: 6px; }
+
+    /* Menu do hamburger (itens secundários) */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 64px;
+      right: 12px;
+      background: rgba(0,0,0,0.92);
+      padding: 0.8rem;
+      border-radius: 8px;
+      flex-direction: column;
+      gap: .6rem;
+      min-width: 220px;
+      z-index: 95;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: #fff;
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius:6px;
+      display:block;
+    }
+    .mobile-nav a:hover { background: rgba(255,255,255,0.04); }
+
+    /* estilo hero e restante (mantidos) */
     .hero {
       background-image: linear-gradient(rgba(0,0,0,0.46), rgba(0,0,0,0.32)), url('assets/capanovasite.png');
       background-size: cover;
@@ -29,13 +140,7 @@
       width: 100%;
     }
 
-    .hero .tag { 
-      background: rgba(255,255,255,0.12); 
-      color:#fff; 
-      padding:.35rem .7rem; 
-      border-radius:999px; 
-      margin-bottom:1rem; 
-    }
+    .hero .tag { background: rgba(255,255,255,0.12); color:#fff; padding:.35rem .7rem; border-radius:999px; margin-bottom:1rem; }
 
     .hero h1, .hero p {
       color: #fff;
@@ -55,14 +160,22 @@
       opacity: .95;
     }
 
-    /* Hero responsiveness */
+    /* responsividade */
     @media (max-width: 920px) {
+      .primary-nav { display: none; } /* opcional: esconde nav principal em telas pequenas */
       .hero { min-height: 62vh; padding-top: 64px; align-items: center; }
+      .site-header .header-inner{ padding:0.5rem 0.85rem; }
+      .mobile-nav { top: 56px; right: 8px; }
     }
     @media (max-width: 480px) {
       .hero { min-height: 55vh; }
       .hero h1 { font-size: 1.6rem; }
+      .mobile-nav { right: 8px; top: 56px; min-width: 180px; }
     }
+
+    /* esconder scrollbar visual (opcional) */
+    .main-nav::-webkit-scrollbar { height: 6px; }
+    .main-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 6px; }
   </style>
 
   <!-- Google Analytics -->
@@ -94,6 +207,7 @@
           <p data-translate="eventDesc">Cuidamos de toda a logística da sua participação em eventos e feiras, para que você se concentre apenas no que realmente importa.</p>
         </div>
         <div class="service">
+          <!-- removido termo "Logística para Bem-Estar" — título ajustado -->
           <h3 data-translate="healthAndCareTitle">Logística para Bem-Estar</h3>
           <p data-translate="healthAndCareDesc">Oferecemos suporte completo e humanizado para sua estadia, cuidando de toda a logística necessária para quem busca bem‑estar na cidade.</p>
         </div>
@@ -181,3 +295,4 @@
   <script src="load-header.js"></script>
 </body>
 </html>
+
