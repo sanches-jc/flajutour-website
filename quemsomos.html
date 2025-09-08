@@ -6,115 +6,9 @@
     <title>Quem Somos - Nossa História | Flajutour</title>
     <meta name="description" content="Conheça a equipe da Flajutour, formada por Flávia Cristina e Julio Cesar. Descubra nossa missão de oferecer experiências de turismo receptivo em São Paulo com excelência e toque pessoal.">
     <link rel="stylesheet" href="css/style.css">
-    
-        // ...ou cole diretamente antes de </body> em cada .html...
-    <script>
-    (async function loadHeader(){
-      try {
-        const res = await fetch('header.html');
-        if (!res.ok) throw new Error('header.html não encontrado');
-        const text = await res.text();
-        // insere no topo do body
-        const placeholder = document.getElementById('header-placeholder') || document.createElement('div');
-        if (!placeholder.id) { placeholder.id = 'header-placeholder'; document.body.prepend(placeholder); }
-        placeholder.innerHTML = text;
-    
-        // inicializa comportamento do menu (hamburger + ajuste dinâmico)
-        const btn = document.querySelector('.hamburger');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const primaryNav = document.querySelector('.primary-nav');
-        const headerInner = document.querySelector('.header-inner');
-        const rightBlock = headerInner && headerInner.querySelector('div[style*="margin-left:auto"]');
-    
-        if (!btn || !mobileNav || !primaryNav || !headerInner || !rightBlock) return;
-    
-        // toggle
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const open = mobileNav.classList.toggle('open');
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        mobileNav.addEventListener('click', (e) => {
-          if (e.target.tagName === 'A') { mobileNav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
-        });
-        document.addEventListener('click', (e) => {
-          if (!mobileNav.classList.contains('open')) return;
-          if (!mobileNav.contains(e.target) && !btn.contains(e.target)) {
-            mobileNav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-    
-        // ajuste dinâmico (move itens de/para mobile-nav)
-        function availableWidth(){
-          const total = headerInner.getBoundingClientRect().width;
-          const right = rightBlock.getBoundingClientRect().width;
-          const logo = headerInner.querySelector('.logo') ? headerInner.querySelector('.logo').getBoundingClientRect().width : 0;
-          const padding = 48;
-          return total - right - logo - padding;
-        }
-        function moveItem(item, from, to, prepend=false){ if (!item) return; if (prepend) to.insertBefore(item, to.firstChild); else to.appendChild(item); }
-    
-        function adjustMenu(){
-          while (primaryNav.scrollWidth > availableWidth()){
-            const children = Array.from(primaryNav.children);
-            let lastRemovable = null;
-            for (let i = children.length -1; i >= 0; i--){
-              const ch = children[i];
-              if (ch.dataset.core !== '1'){ lastRemovable = ch; break; }
-            }
-            if (!lastRemovable) break;
-            moveItem(lastRemovable, primaryNav, mobileNav, false);
-          }
-          let moved = true;
-          while (moved){
-            moved = false;
-            const firstMobile = mobileNav.querySelector('a');
-            if (!firstMobile) break;
-            primaryNav.appendChild(firstMobile);
-            if (primaryNav.scrollWidth <= availableWidth()) { moved = true; }
-            else { mobileNav.insertBefore(firstMobile, mobileNav.firstChild); break; }
-          }
-        }
-    
-        let resizeTimer = null;
-        function scheduleAdjust(){ if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(adjustMenu, 80); }
-        window.addEventListener('resize', scheduleAdjust);
-        window.addEventListener('load', scheduleAdjust);
-        const obs = new MutationObserver(scheduleAdjust);
-        obs.observe(headerInner, { childList: true, subtree: true });
-        scheduleAdjust();
-      } catch (err) {
-        console.error('Erro ao carregar header:', err);
-      }
-    })();
-    </script>
 </head>
 <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="index.html"><img src="assets/logo-flajutour.PNG" alt="Logo Flajutour" class="logo"></a>
-        <nav class="main-nav">
-          <a href="index.html" data-translate="home">Home</a>
-          <a href="sao-paulo.html" data-translate="saoPaulo">São Paulo</a>
-          <a href="negocios.html" data-translate="business">Negócios</a>
-          <a href="cultura.html" data-translate="culture">Cultura</a>
-          <a href="gastronomia.html" data-translate="gastronomy">Gastronomia</a>
-          <a href="health-and-care.html" data-translate="healthAndCare">Health and Care</a>
-          <a href="passagens.html" data-translate="flights">Passagens</a>
-          <a href="seguro-viagem.html" data-translate="travelInsurance">Seguro Viagem</a>
-          <a href="carros.html" data-translate="cars">Carros</a>
-          <a href="hoteis.html" data-translate="hotels">Hoteis</a>
-          <a href="blog.html" data-translate="blog">Blog</a>
-          <a href="quemsomos.html" data-translate="about">Quem Somos</a>
-          <a href="login.html" data-translate="login">Login</a>
-          <div class="language-switcher">
-            <img src="https://flagcdn.com/br.svg" alt="Bandeira do Brasil" data-lang="pt" class="active">
-            <img src="https://flagcdn.com/us.svg" alt="Flag of United States" data-lang="en">
-            <img src="https://flagcdn.com/es.svg" alt="Bandera de España" data-lang="es">
-          </div>
-        </nav>
-      </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main>
         <section class="section container secao-quem-somos">
@@ -142,5 +36,6 @@
         <p data-translate="footerContact">Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
         <p><a href="politica-de-privacidade.html" data-translate="privacyLink">Política de Privacidade</a></p>
     </footer>
+    <script src="load-header.js"></script>
 </body>
 </html>
