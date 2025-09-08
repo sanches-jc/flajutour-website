@@ -1,226 +1,307 @@
-/* ===== RESET BÁSICO ===== */
+/* Importação da fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root {
+  --primary-color: #0da3ef;      /* Azul letras principais */
+  --accent-color: #f87d33;       /* Laranja detalhes/bordas */
+  --bg-color: #f0f6f5;           /* Fundo geral */
+  --text-muted: #6b6b6b;         /* Texto secundário */
+  --container: 1100px;
+  --radius: 12px;
+  --btn-radius: 10px;
+  --gap: 20px;
+}
+
+/* Reset básico */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
 }
 
 body {
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== LINKS ===== */
-a {
-  color: inherit;
+/* Container principal */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+/* Header */
+.site-header {
+  background: #fff;
+  border-bottom: 2px solid var(--accent-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
+}
+
+.main-nav {
+  display: flex;
+  gap: 18px;
+}
+
+.main-nav a {
+  color: var(--primary-color);
+  font-weight: 600;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+.main-nav a:hover {
+  color: var(--accent-color);
 }
 
-/* ===== CONTAINERS ===== */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-/* ===== HERO ===== */
+/* Hero */
 .hero {
-  background: url('../assets/capanovasite.png') center/cover no-repeat;
+  background-image: linear-gradient(rgba(0,0,0,0.46), rgba(0,0,0,0.32)), url('../assets/capanovasite.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
   color: #fff;
+  padding-top: 72px;
   text-align: center;
-  padding: 6rem 2rem;
+}
+
+.hero-inner {
+  max-width: var(--container);
+  margin: 0 auto 4rem;
 }
 
 .hero .tag {
-  font-size: 1.2rem;
-  font-weight: 600;
-  display: block;
+  background: rgba(248, 125, 51, 0.12);
+  color: #fff;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
   margin-bottom: 1rem;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.65);
 }
 
 .hero p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  margin-top: 0.8rem;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.65);
 }
 
-/* ===== SECTIONS ===== */
+/* Seções gerais */
+.section {
+  padding: 36px 0;
+}
+
 .section h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 36px;
+  font-weight: 800;
   margin-bottom: 2rem;
+  color: var(--primary-color);
 }
 
-.section p {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* ===== GRID 3 ===== */
+/* Grid de Serviços */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-/* ===== SERVIÇOS ===== */
 .service {
-  background-color: #f9f9f9;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.service:hover {
-  transform: translateY(-5px);
+  background-color: #e8f0f4; /* fundo cinza claro */
+  border: 2px solid var(--accent-color);
+  padding: 24px;
+  border-radius: var(--radius);
 }
 
 .service h3 {
-  margin-bottom: 1rem;
-  color: #222;
+  color: var(--primary-color);
+  margin-bottom: 10px;
 }
 
-/* ===== QUEM SOMOS ===== */
-.grid-socios {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.service p {
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
-.socio-card {
+/* Seção Quem Somos */
+.secao-quem-somos .grid-socios {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
   text-align: center;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background-color: #f1f1f1;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-.socio-card img {
-  width: 120px;
-  height: 120px;
+.secao-quem-somos .socio-card {
+  background-color: #e8f0f4;
+  border: 2px solid var(--accent-color);
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.secao-quem-somos .socio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.secao-quem-somos .socio-card img {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border: 6px solid var(--accent-color);
 }
 
-/* ===== FORMULÁRIO ===== */
+.secao-quem-somos .socio-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
+  color: var(--primary-color);
+}
+
+.secao-quem-somos .socio-card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Formulário */
 form {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
-  background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 3rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-form input, form select, form textarea {
+input, select, textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
 }
 
-form textarea {
-  resize: vertical;
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(13,163,239,0.1);
 }
 
-.btn-primary {
-  background-color: #1e90ff;
+form button {
+  background-color: var(--accent-color);
   color: #fff;
+  padding: 14px 24px;
+  border-radius: var(--btn-radius);
   border: none;
-  padding: 1rem 2rem;
   font-size: 1rem;
-  border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
+  transition: transform 0.2s ease-in-out;
 }
 
-.btn-primary:hover {
-  background-color: #0d6efd;
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(248,125,51,0.2);
 }
 
-/* ===== CTA WHATSAPP ===== */
+/* CTA WhatsApp fixo */
 .btn-whatsapp {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: var(--accent-color);
   color: #fff;
-  padding: 0.8rem 1.2rem;
+  padding: 14px 18px;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-align: center;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  z-index: 999;
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 1000;
+  box-shadow: 0 6px 12px rgba(248,125,51,0.2);
+  transition: transform 0.2s ease;
 }
 
 .btn-whatsapp:hover {
-  background-color: #1ebe5d;
+  transform: translateY(-2px);
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 .site-footer {
-  background-color: #222;
-  color: #fff;
+  background: #fff;
+  border-top: 2px solid var(--accent-color);
+  padding: 2rem;
   text-align: center;
-  padding: 2rem 1rem;
 }
 
 .site-footer a {
-  color: #1e90ff;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+.site-footer a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsividade */
+@media (max-width: 1000px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .main-nav {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2rem;
+    font-size: 36px;
   }
-
   .hero p {
-    font-size: 1rem;
+    font-size: 16px;
   }
-
+  .section h2 {
+    font-size: 30px;
+  }
   .form-grid {
     grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 4rem 1rem;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero .tag {
-    font-size: 1rem;
-  }
-
-  .btn-whatsapp {
-    bottom: 1
