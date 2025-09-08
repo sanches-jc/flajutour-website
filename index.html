@@ -132,13 +132,19 @@
     <input type="email" name="email" data-translate="formEmail" placeholder="Seu e-mail" required>
   </div>
   <div class="form-grid">
-    <input type="tel" name="telefone" data-translate="formPhone" placeholder="Seu telefone (com DDD)" required>
-    <div class="field-group">
-      <label data-translate="hasWhatsappLabel">Possui WhatsApp?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="whatsapp" value="sim" data-translate="whatsappYes" required> Sim</label>
-        <label><input type="radio" name="whatsapp" value="nao" data-translate="whatsappNo"> Não</label>
-      </div>
+    <!-- ...demais campos acima... -->
+<div class="form-grid form-grid--contact">
+  <div class="field-group">
+    <label for="telefone" class="field-label">Seu telefone (com DDD)</label>
+    <input type="tel" id="telefone" name="telefone" placeholder="(11) 2367-3909" required>
+  </div>
+
+  <div class="field-group">
+    <label for="whatsapp" class="field-label">WhatsApp (com DDD)</label>
+    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 91129-3987">
+  </div>
+</div>
+<!-- ...demais campos abaixo... -->
     </div>
   </div>
   <select name="cliente" data-translate="formClientType" required>
