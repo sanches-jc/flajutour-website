@@ -7,119 +7,19 @@
   
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- adicionado: estilos para capa do site e cabeçalho translúcido -->
+  <!-- estilos específicos da página inicial -->
   <style>
-    /* Cabeçalho translúcido sobre a imagem */
-    .site-header{
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
-      background: rgba(255,255,255,0.08);
+    /* Variante transparente do header para a homepage */
+    .site-header.transparent {
+      position: absolute !important;
+      background: rgba(255,255,255,0.08) !important;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-    .site-header .header-inner{
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      padding:0.6rem 1rem;
-      flex-wrap: nowrap;
-    }
-    .site-header .logo{ height:44px; display:block; flex-shrink:0; }
-
-    /* Nav principal (linha única) */
-    .primary-nav {
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      flex-wrap: nowrap;
-      white-space: nowrap;
-      margin-left: 1.25rem;
-    }
-    .primary-nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight:600;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-      padding: 6px 8px;
-      flex-shrink:0;
+      box-shadow: none;
     }
 
-    /* botão login na linha principal */
-    .btn-login {
-      background: #ff7a2d;
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight:700;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.15);
-    }
-
-    /* botão hamburger (agora sempre visível) */
-    .hamburger {
-      display: inline-flex; /* mostrar sempre */
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: 0;
-      background: rgba(0,0,0,0.28);
-      border-radius: 8px;
-      cursor: pointer;
-      flex-shrink: 0;
-      margin-left: 8px;
-      z-index: 90;
-      position: relative;
-    }
-    .hamburger span,
-    .hamburger span::before,
-    .hamburger span::after {
-      display: block;
-      background: #fff;
-      height: 2px;
-      width: 18px;
-      border-radius: 2px;
-      position: relative;
-    }
-    .hamburger span::before,
-    .hamburger span::after {
-      content: "";
-      position: absolute;
-      left: 0;
-    }
-    .hamburger span::before { top: -6px; }
-    .hamburger span::after  { top: 6px; }
-
-    /* Menu do hamburger (itens secundários) */
-    .mobile-nav {
-      display: none;
-      position: absolute;
-      top: 64px;
-      right: 12px;
-      background: rgba(0,0,0,0.92);
-      padding: 0.8rem;
-      border-radius: 8px;
-      flex-direction: column;
-      gap: .6rem;
-      min-width: 220px;
-      z-index: 95;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      color: #fff;
-      text-decoration:none;
-      padding: 8px 10px;
-      border-radius:6px;
-      display:block;
-    }
-    .mobile-nav a:hover { background: rgba(255,255,255,0.04); }
-
-    /* estilo hero e restante (mantidos) */
+    /* estilo hero e restante */
     .hero {
       background-image: linear-gradient(rgba(0,0,0,0.46), rgba(0,0,0,0.32)), url('assets/capanovasite.png');
       background-size: cover;
@@ -162,20 +62,12 @@
 
     /* responsividade */
     @media (max-width: 920px) {
-      .primary-nav { display: none; } /* opcional: esconde nav principal em telas pequenas */
       .hero { min-height: 62vh; padding-top: 64px; align-items: center; }
-      .site-header .header-inner{ padding:0.5rem 0.85rem; }
-      .mobile-nav { top: 56px; right: 8px; }
     }
     @media (max-width: 480px) {
       .hero { min-height: 55vh; }
       .hero h1 { font-size: 1.6rem; }
-      .mobile-nav { right: 8px; top: 56px; min-width: 180px; }
     }
-
-    /* esconder scrollbar visual (opcional) */
-    .main-nav::-webkit-scrollbar { height: 6px; }
-    .main-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 6px; }
   </style>
 
   <!-- Google Analytics -->
@@ -297,107 +189,15 @@
 
   <!-- Código de integração limpo + script do menu hamburger -->
   <script>
-    // --------------- MENU HAMBURGER + MOVEMENT (dinâmico) ---------------
-    (function(){
-      const btn = document.querySelector('.hamburger');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const primaryNav = document.querySelector('.primary-nav');
-      const headerInner = document.querySelector('.header-inner');
-      const rightBlock = headerInner && headerInner.querySelector('div[style*="margin-left:auto"]');
-
-      if (!btn || !mobileNav || !primaryNav || !headerInner || !rightBlock) return;
-
-      // toggle do menu hamburger
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const open = mobileNav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      mobileNav.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-          mobileNav.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
+    // Apply transparent header variant for homepage
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const header = document.querySelector('.site-header');
+        if (header) {
+          header.classList.add('transparent');
         }
-      });
-      document.addEventListener('click', (e) => {
-        if (!mobileNav.classList.contains('open')) return;
-        if (!mobileNav.contains(e.target) && !btn.contains(e.target)) {
-          mobileNav.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // função utilitária: largura disponível para primary-nav
-      function availableWidth() {
-        const total = headerInner.getBoundingClientRect().width;
-        const right = rightBlock.getBoundingClientRect().width;
-        const logo = headerInner.querySelector('.logo') ? headerInner.querySelector('.logo').getBoundingClientRect().width : 0;
-        const padding = 48; // folga para margens/paddings
-        return total - right - logo - padding;
-      }
-
-      // move um nó de origem -> destino (mantém o evento de click)
-      function moveItem(item, from, to, prepend = false) {
-        if (!item) return;
-        if (prepend) to.insertBefore(item, to.firstChild);
-        else to.appendChild(item);
-      }
-
-      // Ajuste: move itens do mobile para primary se houver espaço e vice-versa
-      function adjustMenu() {
-        // primeiro, tenta mover do primary para mobile se exceder espaço
-        while (primaryNav.scrollWidth > availableWidth()) {
-          // não removemos itens marcado data-core="1"
-          const children = Array.from(primaryNav.children);
-          // procura último item removível (data-core !== "1")
-          let lastRemovable = null;
-          for (let i = children.length - 1; i >= 0; i--) {
-            const ch = children[i];
-            if (ch.dataset.core !== '1') { lastRemovable = ch; break; }
-          }
-          // se não encontrar item removível, tenta mover o último que não seja o primeiro  (safety)
-          if (!lastRemovable) {
-            // evita remover cores
-            break;
-          }
-          moveItem(lastRemovable, primaryNav, mobileNav, false);
-        }
-
-        // em seguida, tenta mover do mobile para primary enquanto houver espaço
-        let moved = true;
-        while (moved) {
-          moved = false;
-          const firstMobile = mobileNav.querySelector('a');
-          if (!firstMobile) break;
-          // move temporariamente e checa se ficou dentro do espaço
-          primaryNav.appendChild(firstMobile);
-          if (primaryNav.scrollWidth <= availableWidth()) {
-            moved = true; // deixou no primary
-          } else {
-            // sem espaço: devolve para mobile (na frente)
-            mobileNav.insertBefore(firstMobile, mobileNav.firstChild);
-            break;
-          }
-        }
-      }
-
-      // debounce helper
-      let resizeTimer = null;
-      function scheduleAdjust() {
-        if (resizeTimer) clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => { adjustMenu(); }, 80);
-      }
-
-      // observar mudanças (fonts carregadas, imagens, etc)
-      window.addEventListener('resize', scheduleAdjust);
-      window.addEventListener('load', scheduleAdjust);
-      // também observa mutações no header (caso algo mude dinamicamente)
-      const obs = new MutationObserver(scheduleAdjust);
-      obs.observe(headerInner, { childList: true, subtree: true });
-
-      // execução inicial
-      scheduleAdjust();
-    })();
+      }, 100);
+    });
   </script>
 
   <script src="load-header.js"></script>
