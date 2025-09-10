@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Dicas e Roteiros de São Paulo | Flajutour</title>
+    <meta name="description" content="Dicas exclusivas de turismo em São Paulo, roteiros culturais, gastronômicos e experiências únicas pela maior cidade do Brasil. Blog da Flajutour.">
+    <meta name="keywords" content="blog turismo São Paulo, dicas SP, roteiros culturais, gastronomia paulista, turismo receptivo, experiências São Paulo">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Blog - Dicas e Roteiros de São Paulo | Flajutour">
+    <meta property="og:description" content="Dicas exclusivas de turismo em São Paulo, roteiros culturais, gastronômicos e experiências únicas pela maior cidade do Brasil.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.flajutour.com.br/blog.html">
+    <meta property="og:image" content="https://www.flajutour.com.br/assets/capanovasite.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog - Dicas e Roteiros de São Paulo | Flajutour">
+    <meta name="twitter:description" content="Dicas exclusivas de turismo em São Paulo, roteiros culturais, gastronômicos e experiências únicas pela maior cidade do Brasil.">
+    <meta name="twitter:image" content="https://www.flajutour.com.br/assets/capanovasite.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PFEP9B1ERC');
+    </script>
+    
+    <style>
+      .blog-hero {
+        background: linear-gradient(135deg, var(--blue) 0%, #007bb8 100%);
+        color: white;
+        padding: 4rem 0 3rem;
+        text-align: center;
+      }
+      
+      .blog-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .blog-hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+      
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      
+      .blog-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .blog-card-image {
+        height: 200px;
+        background: linear-gradient(45deg, var(--blue), var(--orange));
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+      }
+      
+      .blog-card-content {
+        padding: 1.5rem;
+      }
+      
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      
+      .blog-author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .blog-card h3 {
+        color: var(--blue);
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+      }
+      
+      .blog-card p {
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      
+      .blog-categories {
+        margin: 3rem 0;
+        text-align: center;
+      }
+      
+      .category-tags {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+      
+      .category-tag {
+        background: var(--blue);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background 0.3s ease;
+      }
+      
+      .category-tag:hover {
+        background: var(--orange);
+      }
+      
+      .read-more {
+        color: var(--blue);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.3s ease;
+      }
+      
+      .read-more:hover {
+        color: var(--orange);
+      }
+      
+      .read-more::after {
+        content: '→';
+        transition: transform 0.3s ease;
+      }
+      
+      .read-more:hover::after {
+        transform: translateX(3px);
+      }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Blog Flajutour</h1>
+                <p>Dicas exclusivas, roteiros únicos e insights sobre São Paulo. Descubra a cidade através dos olhos de quem realmente a conhece.</p>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="blog-categories">
+                <h2>Explore por Categoria</h2>
+                <div class="category-tags">
+                    <a href="#cultura" class="category-tag">Cultura & Arte</a>
+                    <a href="#gastronomia" class="category-tag">Gastronomia</a>
+                    <a href="#negocios" class="category-tag">Turismo de Negócios</a>
+                    <a href="#saude" class="category-tag">Health & Care</a>
+                    <a href="#dicas" class="category-tag">Dicas Locais</a>
+                </div>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-card-image">🎭</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <span>👤</span>
+                                <span>Flávia Cristina</span>
+                            </div>
+                            <span>•</span>
+                            <span>5 min de leitura</span>
+                            <span>•</span>
+                            <span>Jan 2025</span>
+                        </div>
+                        <h3>5 Museus Imperdíveis em São Paulo</h3>
+                        <p>Descubra os tesouros culturais da cidade, desde o icônico MASP até galerias underground que poucos conhecem. Um guia completo para os amantes da arte.</p>
+                        <a href="#" class="read-more">Ler artigo completo</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🍽️</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <span>👤</span>
+                                <span>Flávia Cristina</span>
+                            </div>
+                            <span>•</span>
+                            <span>7 min de leitura</span>
+                            <span>•</span>
+                            <span>Jan 2025</span>
+                        </div>
+                        <h3>Roteiro Gastronômico: Do Mercadão à Vila Madalena</h3>
+                        <p>Uma jornada culinária pela diversidade de São Paulo. Sabores que contam a história da imigração e da fusão cultural da maior metrópole do país.</p>
+                        <a href="#" class="read-more">Ler artigo completo</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🏢</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <span>👤</span>
+                                <span>Julio Cesar</span>
+                            </div>
+                            <span>•</span>
+                            <span>4 min de leitura</span>
+                            <span>•</span>
+                            <span>Jan 2025</span>
+                        </div>
+                        <h3>Logística Perfeita: Dicas para Viagens de Negócios</h3>
+                        <p>Como otimizar seu tempo em São Paulo durante eventos e reuniões corporativas. Estratégias de mobilidade e hospedagem que fazem a diferença.</p>
+                        <a href="#" class="read-more">Ler artigo completo</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🏥</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <span>👤</span>
+                                <span>Julio Cesar</span>
+                            </div>
+                            <span>•</span>
+                            <span>6 min de leitura</span>
+                            <span>•</span>
+                            <span>Dez 2024</span>
+                        </div>
+                        <h3>São Paulo: Capital da Saúde na América Latina</h3>
+                        <p>Por que São Paulo se tornou o destino preferido para turismo médico. Qualidade, custos e a infraestrutura que atrai pacientes do mundo todo.</p>
+                        <a href="#" class="read-more">Ler artigo completo</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">🗺️</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <span>👤</span>
+                                <span>Flávia Cristina</span>
+                            </div>
+                            <span>•</span>
+                            <span>8 min de leitura</span>
+                            <span>•</span>
+                            <span>Dez 2024</span>
+                        </div>
+                        <h3>Bairros com Personalidade: Guia Alternativo de SP</h3>
+                        <p>Além do centro turístico: Vila Olímpia, Pinheiros, Liberdade e outros bairros que revelam a verdadeira essência paulistana.</p>
+                        <a href="#" class="read-more">Ler artigo completo</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-card-image">💡</div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <span>👤</span>
+                                <span>Julio Cesar</span>
+                            </div>
+                            <span>•</span>
+                            <span>5 min de leitura</span>
+                            <span>•</span>
+                            <span>Nov 2024</span>
+                        </div>
+                        <h3>Primeiro em São Paulo? 10 Dicas Essenciais</h3>
+                        <p>Guia prático para quem visita a cidade pela primeira vez. Transporte, segurança, onde comer e o que não pode deixar de ver.</p>
+                        <a href="#" class="read-more">Ler artigo completo</a>
+                    </div>
+                </article>
+            </div>
+
+            <div style="text-align: center; margin: 3rem 0;">
+                <p style="color: var(--muted); margin-bottom: 1rem;">Gostou do nosso conteúdo?</p>
+                <a href="index.html#newsletter" class="btn-primary" style="display: inline-block; text-decoration: none; max-width: none; padding: 1rem 2rem;">Inscreva-se na Newsletter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html">Política de Privacidade</a> | <a href="faq.html">FAQ</a> | <a href="quemsomos.html">Sobre Nós</a> | <a href="blog.html">Blog</a></p>
+    </footer>
+
+    <script src="load-header.js"></script>
+</body>
+</html>

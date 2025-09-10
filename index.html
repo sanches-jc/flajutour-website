@@ -153,6 +153,71 @@
       </div>
     </section>
 
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <h2>O que Nossos Clientes Dizem</h2>
+        <div class="testimonial-carousel">
+          <div class="testimonial-wrapper">
+            <div class="testimonial-slide active">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <p>"A Flajutour superou todas as nossas expectativas! O conhecimento da Flávia sobre a cultura paulistana é impressionante, e a logística do Julio foi perfeita. Conseguimos aproveitar São Paulo como nunca imaginamos."</p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-info">
+                    <h4>Maria Elena Rodriguez</h4>
+                    <span>Diretora de Marketing, Barcelona</span>
+                    <div class="testimonial-rating">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <p>"Excelente suporte durante minha estadia para tratamento médico. A equipe cuidou de todos os detalhes logísticos, permitindo que eu focasse apenas na minha recuperação. Serviço excepcional!"</p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-info">
+                    <h4>Dr. James Patterson</h4>
+                    <span>Médico, Toronto, Canadá</span>
+                    <div class="testimonial-rating">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <div class="testimonial-text">
+                  <p>"Roteiro gastronômico incrível! Descobrimos lugares que jamais encontraríamos sozinhos. A paixão da equipe por São Paulo é contagiante. Já estamos planejando nossa próxima visita!"</p>
+                </div>
+                <div class="testimonial-author">
+                  <div class="author-info">
+                    <h4>Carlos e Ana Mendoza</h4>
+                    <span>Empresários, Buenos Aires</span>
+                    <div class="testimonial-rating">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="carousel-controls">
+            <button class="carousel-btn prev" aria-label="Depoimento anterior">‹</button>
+            <div class="carousel-dots">
+              <button class="dot active" aria-label="Depoimento 1"></button>
+              <button class="dot" aria-label="Depoimento 2"></button>
+              <button class="dot" aria-label="Depoimento 3"></button>
+            </div>
+            <button class="carousel-btn next" aria-label="Próximo depoimento">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Newsletter -->
     <section id="newsletter" class="section container newsletter-section">
       <h2>Fique por Dentro das Novidades</h2>
@@ -247,7 +312,7 @@
   <footer class="site-footer">
     <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
     <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
-    <p><a href="politica-de-privacidade.html">Política de Privacidade</a> | <a href="faq.html">FAQ</a> | <a href="quemsomos.html">Sobre Nós</a></p>
+    <p><a href="politica-de-privacidade.html">Política de Privacidade</a> | <a href="faq.html">FAQ</a> | <a href="quemsomos.html">Sobre Nós</a> | <a href="blog.html">Blog</a></p>
   </footer>
 
   <!-- Scripts -->
@@ -310,6 +375,61 @@
             this.style.borderColor = '';
           }
         });
+      });
+
+      // Testimonial Carousel
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const dots = document.querySelectorAll('.dot');
+      const prevBtn = document.querySelector('.carousel-btn.prev');
+      const nextBtn = document.querySelector('.carousel-btn.next');
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Show current slide
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      }
+
+      // Event listeners for carousel
+      if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+      }
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlide = index;
+          showSlide(currentSlide);
+        });
+      });
+
+      // Auto-advance carousel every 5 seconds
+      setInterval(nextSlide, 5000);
+
+      // Keyboard navigation for carousel
+      document.addEventListener('keydown', (e) => {
+        if (e.target.closest('.testimonial-carousel')) {
+          if (e.key === 'ArrowLeft') {
+            prevSlide();
+          } else if (e.key === 'ArrowRight') {
+            nextSlide();
+          }
+        }
       });
 
       // Envio para WhatsApp (contact form)
