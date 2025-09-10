@@ -31,6 +31,24 @@
     const headerInner = document.querySelector('.header-inner');
     const rightBlock = headerInner && headerInner.querySelector('div[style*="margin-left:auto"]');
 
+    // Add FAQ link to primary navigation if not exists
+    if (primaryNav && !primaryNav.querySelector('a[href="faq.html"]')) {
+      const faqLink = document.createElement('a');
+      faqLink.href = 'faq.html';
+      faqLink.textContent = 'FAQ';
+      faqLink.setAttribute('data-core', '0'); // Not a core item, can be moved to mobile
+      primaryNav.appendChild(faqLink);
+    }
+
+    // Add Blog link to primary navigation if not exists
+    if (primaryNav && !primaryNav.querySelector('a[href="blog.html"]')) {
+      const blogLink = document.createElement('a');
+      blogLink.href = 'blog.html';
+      blogLink.textContent = 'Blog';
+      blogLink.setAttribute('data-core', '0'); // Not a core item, can be moved to mobile
+      primaryNav.appendChild(blogLink);
+    }
+
     if (!btn || !mobileNav || !primaryNav || !headerInner || !rightBlock) return;
 
     // Toggle do menu mobile
