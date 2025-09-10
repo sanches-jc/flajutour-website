@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.flajutour.com.br/sitemap.xml
+
+# Disallow backup directories
+Disallow: /backup_html_*
+
+# Disallow login page from search engines
+Disallow: /login.html
+
+# Allow all main content
+Allow: /index.html
+Allow: /sao-paulo.html
+Allow: /cultura.html
+Allow: /gastronomia.html
+Allow: /negocios.html
+Allow: /health-and-care.html
+Allow: /quemsomos.html
+Allow: /politica-de-privacidade.html
+Allow: /css/
+Allow: /assets/

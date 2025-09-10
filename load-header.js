@@ -31,6 +31,14 @@
     const headerInner = document.querySelector('.header-inner');
     const rightBlock = headerInner && headerInner.querySelector('div[style*="margin-left:auto"]');
 
+    // Add FAQ link to primary navigation if not exists
+    if (primaryNav && !primaryNav.querySelector('a[href="faq.html"]')) {
+      const faqLink = document.createElement('a');
+      faqLink.href = 'faq.html';
+      faqLink.textContent = 'FAQ';
+      primaryNav.appendChild(faqLink);
+    }
+
     if (!btn || !mobileNav || !primaryNav || !headerInner || !rightBlock) return;
 
     // Toggle do menu mobile
