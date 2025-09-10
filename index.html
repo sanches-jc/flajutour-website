@@ -98,10 +98,13 @@
 </head>
 
 <body>
+  <!-- Skip navigation for accessibility -->
+  <a href="#main-content" class="skip-nav">Pular para o conteúdo principal</a>
+  
   <!-- Header -->
   <div id="header-placeholder"></div>
 
-  <main>
+  <main id="main-content">
     <!-- Hero -->
     <section id="home" class="hero">
       <div class="hero-inner">
@@ -138,15 +141,35 @@
       </p>
       <div class="grid-socios">
         <div class="socio-card">
-          <img src="assets/flavia.png" alt="Foto de Flávia Cristina" loading="lazy">
+          <img src="assets/flavia.png" alt="Flávia Cristina, co-fundadora da Flajutour, psicóloga e guia de turismo especializada em cultura paulistana" loading="lazy">
           <h3>Flávia Cristina</h3>
           <p>Flavia Cristina, educadora e guia turística apaixonada pelo cenário cultural de São Paulo. Formada em Artes, psicóloga e pedagoga, ela compreende que viajar é uma forma de aprendizado e crescimento. A Flavia é quem enxerga a cidade além de seus cartões-postais, buscando as experiências que inspiram e enriquecem a alma.</p>
         </div>
         <div class="socio-card">
-          <img src="assets/jc.png" alt="Foto de Julio Cesar" loading="lazy">
+          <img src="assets/jc.png" alt="Julio Cesar, co-fundador da Flajutour, consultor de marketing e especialista em mobilidade urbana de São Paulo" loading="lazy">
           <h3>Julio Cesar</h3>
           <p>Julio Cesar, consultor de marketing e especialista em mobilidade urbana. Depois de anos conhecendo cada canto da capital, ele domina a dinâmica da cidade, as rotas mais eficientes e a logística que garante que cada trajeto seja seguro, pontual e sem imprevistos.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="section container newsletter-section">
+      <h2>Fique por Dentro das Novidades</h2>
+      <p style="text-align:center; max-width:600px; margin:-1rem auto 2rem;">Receba dicas exclusivas de turismo em São Paulo, roteiros especiais e ofertas em primeira mão.</p>
+      
+      <div class="newsletter-form">
+        <form id="newsletterForm">
+          <div class="newsletter-input-group">
+            <input type="email" name="email" placeholder="Seu melhor e-mail" required aria-label="Digite seu e-mail para newsletter">
+            <button type="submit" class="btn-newsletter">Inscrever-se</button>
+          </div>
+          <div class="newsletter-privacy">
+            <input type="checkbox" id="privacy-consent" name="privacy" required>
+            <label for="privacy-consent">Concordo em receber e-mails promocionais e aceito a <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a></label>
+          </div>
+        </form>
+        <div id="newsletterResponse" style="text-align:center; margin-top:1rem; font-weight:600;"></div>
       </div>
     </section>
 
@@ -159,30 +182,58 @@
       
       <form id="contactForm">
         <div class="form-grid">
-          <input type="text" name="nome" placeholder="Seu nome" required>
-          <input type="tel" id="telefone" name="telefone" placeholder="(11) 91129-3987" required>
+          <div class="form-field">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required aria-describedby="nome-help">
+            <small id="nome-help">Digite seu nome completo para contato</small>
+          </div>
+          <div class="form-field">
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(11) 91129-3987" required aria-describedby="telefone-help">
+            <small id="telefone-help">Incluindo DDD</small>
+          </div>
         </div>
 
         <div class="form-grid">
-          <select name="cliente" required>
-            <option value="">Selecione o tipo de cliente</option>
-            <option value="pf">Pessoa Física</option>
-            <option value="pj">Empresa</option>
-          </select>
-          <select name="interesse" required>
-            <option value="">Principal interesse na estadia</option>
-            <option value="trabalho">Trabalho</option>
-            <option value="diversao">Diversão</option>
-            <option value="tratamento-saude">Tratamento de Saúde</option>
-          </select>
+          <div class="form-field">
+            <label for="cliente">Tipo de cliente *</label>
+            <select id="cliente" name="cliente" required aria-describedby="cliente-help">
+              <option value="">Selecione o tipo de cliente</option>
+              <option value="pf">Pessoa Física</option>
+              <option value="pj">Empresa</option>
+            </select>
+            <small id="cliente-help">Escolha se é pessoa física ou jurídica</small>
+          </div>
+          <div class="form-field">
+            <label for="interesse">Principal interesse *</label>
+            <select id="interesse" name="interesse" required aria-describedby="interesse-help">
+              <option value="">Principal interesse na estadia</option>
+              <option value="trabalho">Trabalho</option>
+              <option value="diversao">Diversão</option>
+              <option value="tratamento-saude">Tratamento de Saúde</option>
+            </select>
+            <small id="interesse-help">Motivo principal da sua viagem</small>
+          </div>
         </div>
 
         <div class="form-grid">
-          <input type="date" name="chegada" required>
-          <input type="date" name="partida" required>
+          <div class="form-field">
+            <label for="chegada">Data de chegada *</label>
+            <input type="date" id="chegada" name="chegada" required aria-describedby="chegada-help">
+            <small id="chegada-help">Quando você chega em São Paulo</small>
+          </div>
+          <div class="form-field">
+            <label for="partida">Data de partida *</label>
+            <input type="date" id="partida" name="partida" required aria-describedby="partida-help">
+            <small id="partida-help">Quando você parte de São Paulo</small>
+          </div>
         </div>
 
-        <textarea name="mensagem" placeholder="Observações adicionais" rows="5"></textarea>
+        <div class="form-field">
+          <label for="mensagem">Observações adicionais</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Conte-nos mais sobre suas preferências, necessidades especiais ou dúvidas" rows="5" aria-describedby="mensagem-help"></textarea>
+          <small id="mensagem-help">Informações adicionais que podem nos ajudar a personalizar sua experiência</small>
+        </div>
         
         <button type="submit" class="btn-primary">Enviar Pedido de Proposta</button>
       </form>
@@ -206,6 +257,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       const telefoneInput = document.getElementById('telefone');
       const form = document.getElementById('contactForm');
+      const newsletterForm = document.getElementById('newsletterForm');
 
       // Máscara de telefone
       telefoneInput.addEventListener('input', e => {
@@ -216,7 +268,51 @@
         e.target.value = v;
       });
 
-      // Envio para WhatsApp
+      // Newsletter signup
+      newsletterForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        
+        const email = newsletterForm.email.value.trim();
+        const privacyConsent = newsletterForm.privacy.checked;
+        
+        if (!privacyConsent) {
+          document.getElementById('newsletterResponse').innerHTML = '<span style="color:#ffcccc;">Por favor, aceite a política de privacidade.</span>';
+          newsletterForm.privacy.focus();
+          return;
+        }
+        
+        const text = `Olá! Gostaria de me inscrever na newsletter da Flajutour.\n\nE-mail: ${email}`;
+        const encodedText = encodeURIComponent(text);
+        const whatsappNumber = '5511911293987';
+        const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+        
+        document.getElementById('newsletterResponse').innerHTML = '<span style="color:#ccffcc;">Redirecionando para WhatsApp...</span>';
+        setTimeout(() => {
+          window.open(url, '_blank');
+          document.getElementById('newsletterResponse').innerHTML = '<span style="color:#ccffcc;">✓ Solicitação enviada! Nossa equipe entrará em contato.</span>';
+          newsletterForm.reset();
+        }, 1000);
+      });
+
+      // Form validation improvements
+      const requiredFields = form.querySelectorAll('[required]');
+      requiredFields.forEach(field => {
+        field.addEventListener('blur', function() {
+          if (!this.value.trim() && this.hasAttribute('required')) {
+            this.style.borderColor = '#e74c3c';
+          } else {
+            this.style.borderColor = '';
+          }
+        });
+        
+        field.addEventListener('input', function() {
+          if (this.value.trim()) {
+            this.style.borderColor = '';
+          }
+        });
+      });
+
+      // Envio para WhatsApp (contact form)
       form.addEventListener('submit', function(e){
         e.preventDefault();
 

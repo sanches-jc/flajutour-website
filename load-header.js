@@ -36,6 +36,7 @@
       const faqLink = document.createElement('a');
       faqLink.href = 'faq.html';
       faqLink.textContent = 'FAQ';
+      faqLink.setAttribute('data-core', '0'); // Not a core item, can be moved to mobile
       primaryNav.appendChild(faqLink);
     }
 
