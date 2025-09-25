@@ -29,9 +29,12 @@
     const mobileNav = document.querySelector('.mobile-nav');
     const primaryNav = document.querySelector('.primary-nav');
     const headerInner = document.querySelector('.header-inner');
-    const rightBlock = headerInner && headerInner.querySelector('div[style*="margin-left:auto"]');
+    const rightBlock = headerInner && headerInner.querySelector('.nav-actions');
 
-    if (!btn || !mobileNav || !primaryNav || !headerInner || !rightBlock) return;
+    if (!btn || !mobileNav || !primaryNav || !headerInner) {
+      console.warn('Some header elements not found, skipping menu initialization');
+      return;
+    }
 
     // Toggle do menu mobile
     btn.addEventListener('click', (e) => {
@@ -60,7 +63,7 @@
     // Ajuste dinâmico: move itens entre primary-nav e mobile-nav conforme espaço disponível
     function availableWidth() {
       const total = headerInner.getBoundingClientRect().width;
-      const right = rightBlock.getBoundingClientRect().width;
+      const right = rightBlock ? rightBlock.getBoundingClientRect().width : 100; // fallback width
       const logo = headerInner.querySelector('.logo') ? headerInner.querySelector('.logo').getBoundingClientRect().width : 0;
       const padding = 48; // folga para margens/paddings
       return total - right - logo - padding;
@@ -73,6 +76,11 @@
     }
 
     function adjustMenu() {
+      // Skip dynamic adjustment on mobile screens to avoid removing menu items
+      if (window.innerWidth <= 1024) {
+        return;
+      }
+      
       // Move itens do primary para mobile se não há espaço
       while (primaryNav.scrollWidth > availableWidth()) {
         const children = Array.from(primaryNav.children);

@@ -102,14 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', toggleTransparency);
     }
     
-    // Lógica do menu hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('.mobile-nav');
-    if (hamburger && mobileNav) {
-        hamburger.addEventListener('click', () => {
-            mobileNav.classList.toggle('open');
-            hamburger.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
-        });
-    }
+    // Note: Hamburger menu logic is handled by load-header.js to avoid conflicts
 });
 </script>
