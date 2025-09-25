@@ -1,42 +1,42 @@
 /* ===== ESTILOS UNIFICADOS FLAJUTOUR (Incluindo Correções de Header e Mobile) ===== */
 
-/* --- CORREÇÃO DO HEADER TRANSPARENTE --- */
+/* ============================================== */
+/* 1. CORREÇÃO: CABEÇALHO FIXO E TRANSPARENTE */
+/* ============================================== */
 
-/* 1. Torna o elemento principal do cabeçalho (que está sendo carregado) transparente */
-body.has-transparent-header #site-header, 
-body.has-transparent-header #header-placeholder > * { 
-    background-color: transparent !important;
-    box-shadow: none !important; 
-    border-bottom: none !important; 
-    position: absolute; /* Garante que ele flutue sobre o Hero */
+/* Garante que o menu principal seja fixo no topo e sobreponha outros elementos */
+.site-header { /* Assumindo que .site-header é o container principal do menu */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000; /* Alto valor para garantir que fique acima do Hero */
+    transition: background-color 0.3s ease; /* Transição suave para quando o menu rolar/mudar de cor */
+    padding: 10px 0; /* Adicione padding vertical, se necessário */
 }
 
-/* 2. Define a cor do texto/links do menu como branco para contraste */
-body.has-transparent-header #site-header a,
-body.has-transparent-header #header-placeholder a {
+/* Transparência e Cor Branca na Home */
+/* A classe 'has-transparent-header' é adicionada ao <body> pelo load-header.js */
+body.has-transparent-header .site-header,
+body.has-transparent-header #header-placeholder > * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
+/* Links e Logo Brancos na Home (para contraste) */
+body.has-transparent-header .site-header a,
+body.has-transparent-header .site-header .logo-text,
+body.has-transparent-header .site-header .nav-item a {
     color: #fff !important;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4); 
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* 3. Garante que o botão de Login e o Logo se mantenham visíveis */
-body.has-transparent-header .btn-primary, 
-body.has-transparent-header .login-button { 
-    color: #fff !important; 
-    background-color: var(--orange, #FC7F39) !important;
-    text-shadow: none !important;
-}
-.flajutour-logo-text { /* Assumindo que o logo tem uma classe */
-    color: #fff !important;
-}
-
-/* 4. Corrige o problema visual do Hero pulando (se ele for absolute) */
+/* Aumenta o padding do Hero para começar 'abaixo' do menu fixo */
+/* Isto evita que o conteúdo principal fique escondido sob o menu */
 #home-hero {
-    /* ... demais estilos ... */
-    position: relative; /* Garante que o Hero seja o ponto de referência */
+    padding-top: 8rem !important; /* Aumente este valor se o menu for muito alto */
 }
-
 
 /* --- ESTILOS DO INDEX.HTML (Base Original + Correções) --- */
 
