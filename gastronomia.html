@@ -10,36 +10,56 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
     
     <style>
-        /* ===== PÁGINA GASTRONOMIA ===== */
+        /* ===== ESTILOS PADRÃO UNIFICADOS (Identidade Consistente Flajutour) ===== */
 
-        /* Estilo da seção Hero */
+        /* Seção Hero: Unificando o estilo para o ID específico da página */
         #gastro-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/gastro-bg.jpg'); /* SUGESTÃO: Use uma imagem de um prato bem apresentado na pasta assets */
-            background-size: cover;
-            background-position: center;
+            /* REUTILIZAÇÃO: Fundo escuro sólido padrão da identidade visual */
+            background-color: var(--hero-bg-dark, #2c3e50); 
+            /* REMOVIDO: background-image, background-size, background-position */
             color: #fff;
-            text-align: center;
             padding: 5rem 1rem;
+            text-align: center;
         }
 
         #gastro-hero h2 {
             color: #fff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            /* Aplicando a sombra padrão para títulos */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4); 
             font-size: clamp(2rem, 5vw, 2.8rem);
         }
 
         #gastro-hero p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(1rem, 2.5vw, 1.15rem); /* Ajustado para o padrão 1.15rem */
             opacity: .95;
             line-height: 1.7;
-            max-width: 800px;
+            max-width: 750px; /* Ajustado para o padrão 750px */
             margin: 1rem auto 0;
         }
         
-        /* Estilo do Grid de Cards */
+        /* Seção de Conteúdo Padrão (necessário pois a página usa a classe 'section') */
+        .section { 
+            padding: 3rem 0;
+            background-color: var(--bg, #f6f7f8);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section h2 { /* Estilo de título de seção padrão */
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--blue);
+        }
+
+        /* Estilo do Grid de Cards: Unificando o layout */
         .gastro-grid {
+            /* REUTILIZAÇÃO: Padrão Grid responsivo com 300px min-width */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 1.5rem;
             padding: 2rem 0;
         }
@@ -49,7 +69,8 @@
             padding: 2rem;
             border-radius: var(--radius, 12px);
             border: 1px solid #f0f0f0;
-            border-bottom: 4px solid var(--orange, #FC7F39);
+            /* CHAVE: Mantendo a borda inferior laranja da identidade visual */
+            border-bottom: 4px solid var(--orange, #FC7F39); 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -61,7 +82,7 @@
         .gastro-card h3 {
             color: var(--blue, #009DE2);
             font-size: 1.3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem; /* Ajustado para o padrão 0.75rem */
         }
 
         .gastro-card p {
@@ -70,15 +91,17 @@
         }
         
         .gastro-card .highlight {
-            font-size: 2.5rem;
+            /* Estilo para destaque de números, consistente com o azul da marca */
+            font-size: 2.4rem; /* Ajustado para o padrão 2.4rem */
             font-weight: 800;
             color: var(--blue, #009DE2);
             display: block;
             margin-bottom: 0.5rem;
         }
 
-        /* Estilo da Seção de Chamada (CTA) */
+        /* Estilo da Seção de Chamada (CTA): Unificando o ID específico da página */
         #gastro-cta {
+            /* REUTILIZAÇÃO: Fundo azul e padding padrão */
             background-color: var(--blue, #009DE2);
             color: #fff;
             text-align: center;
@@ -91,16 +114,14 @@
         }
 
         #gastro-cta p {
-            margin-top: 1rem;
-            margin-bottom: 2rem;
+            margin: 1rem auto 2rem; /* Uso da margem simplificada para consistência */
             opacity: 0.95;
             font-size: 1.1rem;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .cta-button {
+            /* REUTILIZAÇÃO: Estilo de botão laranja padrão */
             background: var(--orange, #FC7F39);
             color: #fff;
             padding: 14px 32px;
@@ -114,6 +135,7 @@
         }
 
         .cta-button:hover {
+            /* REUTILIZAÇÃO: Efeito hover padrão */
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.25);
         }
@@ -132,6 +154,7 @@
         </section>
 
         <section class="section container">
+            <h2 class="section-title">Grandes Números da Gastronomia</h2>
             <div class="gastro-grid">
                 <div class="gastro-card">
                     <span class="highlight">156 mil</span>
@@ -151,8 +174,8 @@
             </div>
         </section>
         
-        <section class="section container" style="padding-top: 0;">
-             <h2 style="text-align: center; color: var(--blue); font-size: 36px; font-weight: 800; margin-bottom: 2rem;">Explore os Bairros Gastronômicos</h2>
+        <section class="section container" style="padding-top: 0; background-color: transparent;">
+             <h2 class="section-title">Explore os Bairros Gastronômicos</h2>
             <div class="gastro-grid">
                 <div class="gastro-card">
                     <h3>Alta Gastronomia</h3>
@@ -162,12 +185,12 @@
                     <h3>Boemia e Inovação</h3>
                     <p>Em <strong>Pinheiros</strong> e <strong>Vila Madalena</strong>, encontre bares descolados, botecos tradicionais, cervejas artesanais e petiscos criativos que ditam tendências.</p>
                 </div>
-                 <div class="gastro-card">
-                    <h3>Tradição e Cultura</h3>
+                <div class="gastro-card">
+                     <h3>Tradição e Cultura</h3>
                     <p>A <strong>Bela Vista</strong> preserva a herança italiana com suas cantinas e pizzarias, enquanto a <strong>Liberdade</strong> é o paraíso da culinária asiática.</p>
                 </div>
                  <div class="gastro-card">
-                    <h3>A Alma Paulistana</h3>
+                     <h3>A Alma Paulistana</h3>
                     <p>Explore a cena popular e regional no <strong>Tatuapé</strong>, os points alternativos da <strong>Rua Augusta</strong> e a eclética gastronomia da <strong>Vila Mariana</strong>.</p>
                 </div>
             </div>
