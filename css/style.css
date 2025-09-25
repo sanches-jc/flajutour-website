@@ -81,3 +81,81 @@ form button:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(252,1
 /* Responsividade */
 @media(max-width:1000px){.grid-3{grid-template-columns:1fr;}}
 @media(max-width:768px){.hero h1{font-size:36px}.hero p{font-size:16px}.section h2{font-size:30px}.form-grid{grid-template-columns:1fr;}}
+
+/* ===== PÁGINA NEGÓCIOS ===== */
+#negocios-hero {
+    background: url('../img/negocios-bg.jpg') no-repeat center center/cover;
+    color: var(--base-color-light);
+    text-align: center;
+}
+
+#negocios-hero .text {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#negocios-hero .text h2 {
+    margin-bottom: 1rem;
+}
+
+#negocios-hero .text p {
+    opacity: 0.9;
+}
+
+#negocios-services .cards .card {
+    padding: 3.625rem 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 0.25rem solid var(--base-color);
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+#negocios-services .cards .card i {
+    font-size: 4rem;
+    color: var(--base-color);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+#negocios-services .cards .card .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+#negocios-cta {
+    background-color: var(--base-color);
+    color: var(--base-color-light);
+    text-align: center;
+}
+
+#negocios-cta .title {
+    color: var(--base-color-light);
+    margin-bottom: 1rem;
+}
+
+#negocios-cta p {
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+#negocios-cta .button {
+    background-color: var(--base-color-light);
+    color: var(--base-color);
+}
+
+#negocios-cta .button:hover {
+    background-color: #f0f0f0;
+}
+
+/* RESPONSIVIDADE PÁGINA NEGÓCIOS */
+
+/* for large devices: 992px */
+@media (min-width: 992px) {
+    #negocios-services .cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
