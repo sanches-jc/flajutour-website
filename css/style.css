@@ -4,15 +4,29 @@
 /* 1. CORREÇÃO: CABEÇALHO FIXO E TRANSPARENTE */
 /* ============================================== */
 
-/* Garante que o menu principal seja fixo no topo e sobreponha outros elementos */
-.site-header { /* Assumindo que .site-header é o container principal do menu */
+/* ============================================== */
+/* CSS RESET: ZERA MARGENS PADRÃO DO NAVEGADOR */
+/* ============================================== */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Garante que o body não exiba scroll lateral */
+    overflow-x: hidden; 
+}
+
+/* ============================================== */
+/* 2. AJUSTE FINO DO CABEÇALHO (Para garantir Top: 0) */
+/* ============================================== */
+
+/* Garante que o menu fixo comece exatamente no topo do viewport */
+.site-header { 
     position: fixed;
-    top: 0;
+    top: 0 !important; /* Força a posição zero para anular qualquer regra conflitante */
     left: 0;
     width: 100%;
-    z-index: 1000; /* Alto valor para garantir que fique acima do Hero */
-    transition: background-color 0.3s ease; /* Transição suave para quando o menu rolar/mudar de cor */
-    padding: 10px 0; /* Adicione padding vertical, se necessário */
+    z-index: 1000;
 }
 
 /* Transparência e Cor Branca na Home */
