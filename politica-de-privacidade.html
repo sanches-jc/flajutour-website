@@ -5,77 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidade | Flajutour</title>
     <meta name="description" content="Política de Privacidade da Flajutour - Como coletamos, usamos e protegemos suas informações pessoais.">
+    
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .privacy-content {
+            max-width: 800px; /* Limita a largura do texto para melhor leitura */
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .privacy-content h1, .privacy-content h2 {
+            font-family: 'Inter', sans-serif; /* Garante a mesma fonte dos títulos */
+            font-weight: 800;
+        }
+        .privacy-content h1 {
+            text-align: center;
+            color: var(--blue, #009DE2);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 2.5rem;
+        }
+        .privacy-content h2 {
+            color: var(--dark, #3C3C3C);
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--orange, #FC7F39);
+            padding-bottom: 0.5rem;
+        }
+        .privacy-content p, .privacy-content li {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .privacy-content ul {
+            list-style-position: outside;
+            padding-left: 1.5rem;
+        }
+        .privacy-content a {
+            color: var(--orange, #FC7F39);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .privacy-content strong {
+            color: var(--dark, #3C3C3C);
+        }
+    </style>
 </head>
-<body>
+<body class="has-fixed-header">
+
     <div id="header-placeholder"></div>
 
     <main>
         <section class="section container">
-            <h1>Política de Privacidade</h1>
-            
-            <p><strong>Última atualização:</strong> Janeiro de 2025</p>
-            
-            <h2>1. Informações que Coletamos</h2>
-            <p>A Flajutour coleta informações que você nos fornece diretamente, como:</p>
-            <ul>
-                <li>Nome e informações de contato</li>
-                <li>Preferências de viagem</li>
-                <li>Informações de reserva e pagamento</li>
-                <li>Comunicações conosco</li>
-            </ul>
-            
-            <h2>2. Como Usamos Suas Informações</h2>
-            <p>Utilizamos suas informações para:</p>
-            <ul>
-                <li>Fornecer e melhorar nossos serviços de turismo</li>
-                <li>Processar reservas e pagamentos</li>
-                <li>Comunicar sobre seus serviços contratados</li>
-                <li>Enviar atualizações e ofertas relevantes (com seu consentimento)</li>
-            </ul>
-            
-            <h2>3. Compartilhamento de Informações</h2>
-            <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto:</p>
-            <ul>
-                <li>Com prestadores de serviços necessários para executar os serviços contratados</li>
-                <li>Quando exigido por lei</li>
-                <li>Com seu consentimento explícito</li>
-            </ul>
-            
-            <h2>4. Segurança</h2>
-            <p>Implementamos medidas de segurança adequadas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p>
-            
-            <h2>5. Seus Direitos</h2>
-            <p>Você tem o direito de:</p>
-            <ul>
-                <li>Acessar suas informações pessoais</li>
-                <li>Corrigir informações imprecisas</li>
-                <li>Solicitar a exclusão de suas informações</li>
-                <li>Retirar o consentimento para uso de dados</li>
-            </ul>
-            
-            <h2>6. Cookies</h2>
-            <p>Utilizamos cookies para melhorar sua experiência em nosso site. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar algumas funcionalidades do site.</p>
-            
-            <h2>7. Contato</h2>
-            <p>Para questões sobre esta política de privacidade, entre em contato conosco:</p>
-            <ul>
-                <li>Email: contato@flajutour.com</li>
-                <li>Telefone: +55 (11) 2367-3909</li>
-                <li>WhatsApp: +55 (11) 91129-3987</li>
-            </ul>
-            
-            <h2>8. Alterações na Política</h2>
-            <p>Podemos atualizar esta política periodicamente. Notificaremos sobre mudanças significativas através do nosso site ou por email.</p>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
-        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
-        <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
-    </footer>
-
-    <script src="load-header.js"></script>
-</body>
-</html>
+            <div class="privacy-content">
+                <h1>Política de Privacidade</h1>
+                
+                <p><strong>Última atualização:</strong> Janeiro de 2025</p>
+                
+                <h2>1. Informações que Coletamos</h2>
+                <p>A Flajutour coleta informações que você nos fornece diretamente, como:</p>
+                <ul>
+                    <li>Nome e informações de contato</li>
+                    <li>Preferências de viagem</li>
+                    <li>Informações de reserva e pagamento</li>
+                    <li>Comunicações conosco</li>
+                </ul>
+                
+                <h2>2. Como Usamos Suas Informações</h2>
+                <p>Utilizamos suas informações para:</p>
+                <ul>
+                    <li>Fornecer e melhorar nossos serviços de turismo</li>
+                    <li>Processar reservas e pagamentos</li>
+                    <li>Comunicar sobre seus serviços contratados</li>
+                    <li>Enviar atualizações e ofertas relevantes (com seu consentimento)</li>
+                </ul>
+                
+                <h2>3. Compartilhamento de Informações</h2>
+                <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto:</p>
+                <ul>
+                    <li>Com prestadores de serviços necessários para executar os serviços contratados</li>
+                    <li>Quando exigido por lei</li>
+                    <li>Com seu consentimento explícito</li>
+                </ul>
+                
+                <h2>4. Segurança</h2>
+                <p>Implementamos medidas de segurança adequadas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+                
+                <h2>5. Seus Direitos</h2>
+                <p>Você tem o direito de:</p>
+                <ul>
+                    <li>Acessar suas informações pessoais</li>
+                    <li>Corrigir informações imprecisas</li>
+                    <li>Solicitar a exclusão de suas informações</li>
