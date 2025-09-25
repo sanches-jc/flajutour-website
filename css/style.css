@@ -1,190 +1,253 @@
-/* Fonte Inter e variáveis */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+/* ===== ESTILOS UNIFICADOS FLAJUTOUR (Incluindo Correções de Header e Mobile) ===== */
 
-:root {
-  --blue: #009DE2;
-  --orange: #FC7F39;
-  --dark: #3C3C3C;
-  --muted: #6b6b6b;
-  --bg: #f6f7f8;
-  --container: 1100px;
-  --radius: 12px;
-  --btn-radius: 10px;
+/* --- CORREÇÃO DO HEADER TRANSPARENTE --- */
+
+/* 1. Torna o elemento principal do cabeçalho (que está sendo carregado) transparente */
+body.has-transparent-header #site-header, 
+body.has-transparent-header #header-placeholder > * { 
+    background-color: transparent !important;
+    box-shadow: none !important; 
+    border-bottom: none !important; 
+    position: absolute; /* Garante que ele flutue sobre o Hero */
+    width: 100%;
+    z-index: 1000;
 }
 
-/* Reset básico */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--bg); }
-
-/* Containers */
-.container { max-width: var(--container); margin: 0 auto; padding: 28px; }
-
-/* Hero */
-.hero {
-  background-image: linear-gradient(rgba(0,0,0,0.46), rgba(0,0,0,0.32)), url('../assets/capanovasite.png');
-  background-size: cover;
-  background-position: center bottom;
-  min-height: 75vh;
-  display: flex;
-  align-items: flex-end;
-  color: #fff;
-  padding-top: 72px;
-  text-align: center;
-}
-.hero-inner { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1rem 4.5rem; }
-.hero h1 { font-size: clamp(1.6rem,4.5vw,3.2rem); line-height:1.05; text-shadow:0 1px 2px rgba(0,0,0,0.65);}
-.hero p { font-size: clamp(1rem,1.4vw,1.15rem); margin-top:.8rem; opacity:.95; }
-
-/* Seções */
-.section h2 { text-align:center; font-size:36px; font-weight:800; margin-bottom:2rem; color: var(--blue); }
-.grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
-.service { background:#fff; padding:24px; border-radius:12px; border:1px solid #f0f0f0; }
-.service h3 { color: var(--blue); margin-top:0; margin-bottom:10px; }
-.service p { color: var(--muted); line-height:1.6; }
-
-/* Quem Somos */
-.grid-socios { display:flex; justify-content:center; flex-wrap:wrap; gap:3rem; text-align:center; }
-.socio-card { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform 0.3s ease, box-shadow 0.3s ease; max-width:320px; }
-.socio-card:hover { transform:translateY(-8px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
-.socio-card img { width:180px; height:180px; object-fit:cover; border-radius:50%; margin-bottom:1.5rem; border:6px solid var(--orange); }
-.socio-card h3 { margin:0 0 .5rem; color:var(--blue); font-size:1.7rem; }
-.socio-card p { color: var(--muted); font-size:1rem; line-height:1.6; }
-
-/* Formulário */
-form { max-width:720px; margin:18px auto; padding:3rem; background:#fff; border-radius:var(--radius); border:1px solid #f0f0f0; display:flex; flex-direction:column; gap:1.5rem; }
-.form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
-input, select, textarea { padding:14px; border-radius:12px; border:1px solid #e0e0e0; font-size:15px; }
-input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow:0 0 0 4px rgba(0,157,226,0.1); }
-form button { width:100%; max-width:320px; align-self:center; background:var(--orange); color:#fff; padding:14px 24px; border:none; border-radius:12px; cursor:pointer; font-weight:700; transition:all .2s ease-in-out; }
-form button:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(252,127,57,0.2); }
-
-/* Footer */
-.site-footer { text-align:center; padding:2rem 0; background:#fff; color: var(--dark); }
-
-/* CTA WhatsApp fixo */
-.btn-whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  font-weight:700;
-  padding:14px 18px;
-  border-radius:50px;
-  text-decoration:none;
-  box-shadow:0 6px 18px rgba(0,0,0,0.2);
-  z-index:999;
-  transition:all .2s ease-in-out;
-}
-.btn-whatsapp:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.3); }
-
-/* Responsividade */
-@media(max-width:1000px){.grid-3{grid-template-columns:1fr;}}
-@media(max-width:768px){.hero h1{font-size:36px}.hero p{font-size:16px}.section h2{font-size:30px}.form-grid{grid-template-columns:1fr;}}
-
-/* ===== PÁGINA NEGÓCIOS (CORRIGIDO) ===== */
-
-/* Estilo da primeira seção (Hero) */
-#negocios-hero {
-  background-color: #334; /* Cor de fundo escura caso a imagem não carregue */
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/negocios-bg.jpg'); /* Adicione uma imagem negocios-bg.jpg na pasta assets */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 4rem 0;
+/* 2. Define a cor do texto/links do menu como branco para contraste */
+body.has-transparent-header #site-header a,
+body.has-transparent-header #header-placeholder a {
+    color: #fff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4); 
 }
 
-#negocios-hero h2 {
-  color: #fff; /* Garante que o H2 seja branco, sobrepondo o azul padrão */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+/* 3. Garante que o botão de Login e o Logo se mantenham visíveis */
+body.has-transparent-header .btn-primary, 
+body.has-transparent-header .login-button { 
+    color: #fff !important; 
+    background-color: var(--orange, #FC7F39) !important;
+    text-shadow: none !important;
+}
+.flajutour-logo-text { /* Assumindo que o logo tem uma classe */
+    color: #fff !important;
 }
 
-#negocios-hero .text {
-  max-width: 700px;
-  margin: 0 auto;
+/* 4. Corrige o problema visual do Hero pulando (se ele for absolute) */
+#home-hero {
+    /* ... demais estilos ... */
+    position: relative; /* Garante que o Hero seja o ponto de referência */
 }
 
-#negocios-hero p {
-  font-size: clamp(1rem,1.4vw,1.15rem);
-  opacity: .95;
-  line-height: 1.6;
+
+/* --- ESTILOS DO INDEX.HTML (Base Original + Correções) --- */
+
+/* Hero Section */
+#home-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/capanovasite.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 8rem 1rem 6rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#home-hero .hero-content {
+    max-width: 850px;
+}
+#home-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-weight: 800;
+}
+#home-hero p {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    opacity: .95;
+    line-height: 1.6;
+    margin: 1rem auto 2.5rem;
+    max-width: 700px;
 }
 
-/* Estilo da seção de serviços */
-#negocios-services {
-  padding-top: 2rem;
+/* **CORREÇÃO MOBILE**: Centraliza os botões e permite quebra de linha */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+.hero-buttons .btn {
+    padding: 14px 32px;
+    border-radius: var(--btn-radius, 10px);
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 0.5rem;
+    transition: all .3s ease;
+}
+.hero-buttons .btn-primary {
+    background-color: var(--orange, #FC7F39);
+    color: #fff;
+}
+.hero-buttons .btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+.hero-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
-.negocios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
-
 .service-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: var(--radius);
-  border: 1px solid #f0f0f0;
-  border-bottom: 4px solid var(--orange); /* Borda de destaque laranja */
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    padding: 2rem;
+    border-radius: var(--radius, 12px);
+    border: 1px solid #f0f0f0;
+    border-bottom: 4px solid var(--orange, #FC7F39);
+    text-align: center;
 }
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+.service-card .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
 }
-
 .service-card h3 {
-  color: var(--blue);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+    color: var(--blue, #009DE2);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
 }
-
 .service-card p {
-  color: var(--muted);
-  line-height: 1.6;
+    color: var(--muted, #6b6b6b);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+.service-card .btn-details {
+    color: var(--orange, #FC7F39);
+    text-decoration: none;
+    font-weight: 700;
+}
+        
+/* Why Flajutour Section */
+#home-why {
+    background-color: var(--bg, #f6f7f8);
+}
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding-top: 2rem;
+}
+.why-item {
+    text-align: center;
+}
+.why-item .icon {
+    font-size: 3rem;
+    color: var(--blue, #009DE2);
+    margin-bottom: 1rem;
+}
+.why-item h3 {
+    font-size: 1.3rem;
+    color: var(--dark, #3C3C3C);
+    margin-bottom: 0.5rem;
+}
+.why-item p {
+    color: var(--muted, #6b6b6b);
+    line-height: 1.6;
+}
+        
+/* Testimonials Section */
+.testimonial-card {
+    background-color: var(--bg, #f6f7f8);
+    padding: 2.5rem;
+    border-radius: var(--radius, 12px);
+    text-align: center;
+    max-width: 750px;
+    margin: 2rem auto 0;
+}
+.testimonial-card p.quote {
+    font-size: 1.2rem;
+    color: var(--dark, #3C3C3C);
+    line-height: 1.7;
+    font-style: italic;
+}
+.testimonial-card .author {
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: var(--blue, #009DE2);
+}
+        
+/* CTA Section */
+#home-cta {
+    background-color: var(--blue, #009DE2);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+}
+#home-cta h2 { color: #fff; }
+#home-cta p {
+    max-width: 600px;
+    margin: 1rem auto 0; 
+    opacity: 0.95;
+}
+/* Estilo do Ícone do WhatsApp Flutuante */
+.whatsapp-icon-cta {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background-color: #25D366; 
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo da seção de Chamada para Ação (CTA) */
-#negocios-cta {
-  background-color: var(--blue);
-  color: #fff;
-  text-align: center;
-  margin-top: 2rem;
-  padding: 4rem 0;
+.whatsapp-icon-cta:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-#negocios-cta .container {
-  max-width: 700px;
-}
+/* --- MEDIA QUERIES PARA CORREÇÃO MOBILE --- */
 
-#negocios-cta h2 {
-  color: #fff; /* Garante que o H2 seja branco */
-}
+@media (max-width: 600px) {
+    
+    /* 1. Responsividade dos Botões do Hero */
+    .hero-buttons .btn {
+        width: 100%; /* Força o botão a ocupar a largura total no mobile */
+        margin: 0.5rem 0; /* Adiciona margem vertical para separar os botões */
+        font-size: 1rem; 
+        padding: 12px 24px;
+    }
+    
+    /* 2. Ajusta espaçamento e margem do conteúdo do Hero */
+     #home-hero {
+         padding: 10rem 1rem 6rem; /* Aumenta o padding no topo para garantir espaço do menu fixo */
+         min-height: 60vh;
+     }
 
-#negocios-cta p {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
-}
+    /* 3. Ajusta o ícone do WhatsApp para telas menores */
+    .whatsapp-icon-cta {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
 
-.cta-button {
-  background: var(--orange);
-  color: #fff;
-  padding: 14px 32px;
-  border: none;
-  border-radius: var(--btn-radius);
-  cursor: pointer;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all .2s ease-in-out;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    /* 4. Ajusta títulos para telas menores (opcional, mas recomendado) */
+    #home-hero h1 {
+        font-size: 2.2rem;
+    }
 }
