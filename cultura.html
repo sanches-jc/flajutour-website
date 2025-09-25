@@ -3,27 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo Cultural em São Paulo | Flajutour</title>
-    <meta name="description" content="Descubra a história e a rica cena cultural de São Paulo. Roteiros de museus, teatros e galerias para quem busca uma experiência cultural completa.">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Cultura em São Paulo - Museus, Galerias e Arte | Flajutour</title>
+    <meta name="description" content="Explore o cenário cultural de São Paulo. São 132 museus e 67 galerias de arte que fazem da cidade a capital cultural da América Latina. Crie seu roteiro com a Flajutour.">
     
+    <link rel="stylesheet" href="css/style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+    
+    <style>
+        /* ===== PÁGINA CULTURA ===== */
+
+        /* Estilo da seção Hero */
+        #cultura-hero {
+            background-color: #334; /* Cor de fundo escura caso a imagem não carregue */
+            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/cultura-bg.jpg'); /* SUGESTÃO: Use uma imagem do MASP ou da Pinacoteca na pasta assets */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        #cultura-hero h2 {
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        #cultura-hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: .95;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 1rem auto 0;
+        }
+        
+        /* Estilo do Grid de Cards Culturais */
+        .cultura-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .cultura-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius, 12px);
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--orange, #FC7F39);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cultura-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .cultura-card h3 {
+            color: var(--blue, #009DE2);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cultura-card p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+        }
+        
+        .cultura-card .highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blue, #009DE2);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilo da Seção de Chamada (CTA) */
+        #cultura-cta {
+            background-color: var(--blue, #009DE2);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        #cultura-cta h2 {
+            color: #fff;
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+        }
+
+        #cultura-cta p {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--orange, #FC7F39);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: var(--btn-radius, 10px);
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all .2s ease-in-out;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+    </style>
 </head>
 <body>
+
     <div id="header-placeholder"></div>
 
     <main>
+        <section id="cultura-hero">
+            <div class="container">
+                <h2>São Paulo: Respire Arte e Cultura</h2>
+                <p>Descubra por que a cidade é o maior polo cultural da América Latina, com uma cena artística que vibra em cada esquina, de museus renomados a galerias de vanguarda.</p>
+            </div>
+        </section>
+
         <section class="section container">
-            <h2 data-translate="pageTitle">São Paulo: Arte e Cultura em Cada Esquina</h2>
-            <p data-translate="pageContent">Viva a cultura paulistana em roteiros que exploram a história, a arquitetura e a arte da cidade. Em breve, esta página terá mais conteúdo sobre as melhores galerias e museus.</p>
+            <div class="cultura-grid">
+                <div class="cultura-card">
+                    <span class="highlight">132</span>
+                    <h3>Museus: Um Universo de Descobertas</h3>
+                    <p>Com instituições de arte, ciência, história e moda, como MASP, Pinacoteca e Museu do Futebol, São Paulo oferece uma imersão completa em diversos saberes.</p>
+                </div>
+                <div class="cultura-card">
+                    <span class="highlight">67</span>
+                    <h3>Galerias: O Pulso da Arte</h3>
+                    <p>Concentradas nos Jardins e Barra Funda, as galerias de arte promovem obras contemporâneas e clássicas, sendo vitrine para o mercado nacional e internacional.</p>
+                </div>
+                <div class="cultura-card">
+                    <span class="highlight">6,5 Mi</span>
+                    <h3>Milhões de Visitantes em 2024</h3>
+                    <p>A expressiva marca de 4,8 milhões de visitantes em museus e 1,7 milhão em galerias demonstra a força e o apelo da programação cultural da cidade.</p>
+                </div>
+                 <div class="cultura-card">
+                    <h3>Reconhecimento Mundial</h3>
+                    <p>Com a Pinacoteca entre os 100 museus mais visitados do mundo (820 mil pessoas) e eventos como a SP-Arte, São Paulo se consolida no cenário artístico global.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cultura-cta">
+            <div class="container">
+                <h2>Sua Imersão Cultural Começa Agora</h2>
+                <p>Com uma oferta tão vasta, planejar pode ser um desafio. A Flajutour cria roteiros culturais personalizados para que você aproveite o melhor da arte de São Paulo, sem perder tempo.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511912293997&text=Olá! Gostaria de montar um roteiro cultural em São Paulo." class="cta-button" target="_blank">
+                    Planejar Meu Roteiro Cultural
+                </a>
+            </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p data-translate="footerCopyright">&copy; 2025 Flajutour. Todos os direitos reservados.</p>
-        <p data-translate="footerContact">Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
-        <p><a href="politica-de-privacidade.html" data-translate="privacyLink">Política de Privacidade</a></p>
+        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
     </footer>
+
     <script src="load-header.js"></script>
+
 </body>
 </html>
