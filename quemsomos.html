@@ -1,98 +1,208 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Sobre a Flajutour | Turismo Receptivo em São Paulo</title>
-  <meta name="description" content="Conheça a Flajutour, referência em turismo receptivo em São Paulo. Nossa missão é proporcionar experiências únicas em roteiros empresariais, culturais, gastronômicos e de bem-estar.">
-  <meta name="keywords" content="Flajutour, turismo receptivo SP, empresa de turismo São Paulo, roteiros personalizados, missão Flajutour, diferencial turismo">
-  <meta property="og:title" content="Sobre a Flajutour | Turismo Receptivo em São Paulo">
-  <meta property="og:description" content="Experiências únicas para turismo empresarial, cultural, gastronômico e de bem-estar em São Paulo.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.flajutour.com.br/sobre.html">
-  <meta property="og:image" content="https://www.flajutour.com.br/imagens/og-image.jpg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre a Flajutour | Turismo Receptivo em São Paulo</title>
+    <meta name="description" content="Conheça a Flajutour, referência em turismo receptivo em São Paulo. Nossa missão é proporcionar experiências únicas em roteiros empresariais, culturais, gastronômicos e de bem-estar.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+    
+    <style>
+        /* ===== PÁGINA QUEM SOMOS ===== */
+
+        /* Estilo da seção Hero */
+        #about-hero {
+            background-color: var(--blue, #009DE2);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        #about-hero h2 {
+            color: #fff;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        #about-hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: .95;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 1rem auto 0;
+        }
+        
+        /* Grid dos Fundadores */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .founder-card {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius, 12px);
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--orange, #FC7F39);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        .founder-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--blue, #009DE2);
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-card h3 {
+            color: var(--blue, #009DE2);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .founder-card p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-card ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .founder-card li {
+            background-color: var(--bg, #f6f7f8);
+            color: var(--muted, #6b6b6b);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        /* Seção "Nossos Números" */
+        #about-numbers {
+            background-color: var(--bg, #f6f7f8);
+        }
+        
+        .numbers-grid {
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding-top: 2rem;
+        }
+        
+        .number-card {
+            background-color: #fff;
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--radius, 12px);
+        }
+        
+        .number-card .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--blue, #009DE2);
+            display: block;
+        }
+        
+        .number-card .label {
+            color: var(--muted, #6b6b6b);
+            margin-top: 0.5rem;
+        }
+
+    </style>
 </head>
 <body>
-  <div id="header-placeholder"></div>
 
-  <main>
-    <section class="section container secao-quem-somos">
-      <h2 data-translate="aboutTitle" class="section-title">Quem Somos</h2>
-      <div class="quem-somos-conteudo">
-        <p data-translate="aboutDesc" class="centralizado descricao-principal">
-          A Flajutour nasceu do encontro de duas paixões complementares: cultura e movimento. Nossa missão é oferecer experiências únicas em São Paulo com excelência e toque pessoal.
-        </p>
+    <div id="header-placeholder"></div>
 
-        <div class="missao glass-dark centralizado">
-          <h3 class="titulo-missao">Nossa Missão</h3>
-          <p>
-            Proporcionar experiências de turismo receptivo em São Paulo com excelência, segurança e um toque pessoal que só quem conhece a cidade de verdade pode oferecer. Conectamos visitantes com a essência vibrante da capital paulista.
-          </p>
-        </div>
-
-        <div class="grid-socios">
-          <div class="socio-card">
-            <img src="assets/flavia.png" alt="Foto de Flávia Cristina, sócia da Flajutour.">
-            <h3 data-translate="flaviaName">Flávia Cristina</h3>
-            <p data-translate="flaviaBio">
-              Psicóloga, pedagoga, educadora e guia de turismo, apaixonada por arte e cultura. Flávia é a mente por trás dos roteiros exclusivos, garantindo que cada cliente tenha uma experiência única e enriquecedora.
-            </p>
-            <ul>
-              <li>Turismo Cultural</li>
-              <li>Arte & História</li>
-              <li>Experiências Educativas</li>
-              <li>Roteiros Personalizados</li>
-            </ul>
-          </div>
-          <div class="socio-card">
-            <img src="assets/jc.png" alt="Foto de Julio Cesar, sócio da Flajutour.">
-            <h3 data-translate="julioName">Julio Cesar</h3>
-            <p data-translate="julioBio">
-              Consultor de marketing e especialista em mobilidade urbana. Com anos de experiência em logística, Julio garante uma operação eficiente, segura e pontual para todos os roteiros.
-            </p>
-            <ul>
-              <li>Mobilidade Urbana</li>
-              <li>Logística Premium</li>
-              <li>Turismo de Negócios</li>
-              <li>Consultoria</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="nossos-numeros">
-          <div class="centralizado">
-            <h3 class="titulo-numeros">Nossos Números</h3>
-            <p class="subtitulo-numeros">Resultados que demonstram nossa dedicação e excelência no atendimento.</p>
-          </div>
-          <div class="numeros-grid">
-            <div class="numero-card">
-              <div class="numero">15+</div>
-              <div class="label">Anos de Experiência</div>
+    <main>
+        <section id="about-hero">
+            <div class="container">
+                <h2 data-translate="aboutTitle">Nossa História: Paixão por São Paulo</h2>
+                <p data-translate="aboutDesc">A Flajutour nasceu do encontro de duas paixões complementares: cultura e movimento. Nossa missão é oferecer experiências únicas em São Paulo com excelência e um toque pessoal que só quem conhece a cidade de verdade pode oferecer.</p>
             </div>
-            <div class="numero-card">
-              <div class="numero">500+</div>
-              <div class="label">Clientes Satisfeitos</div>
-            </div>
-            <div class="numero-card">
-              <div class="numero">98%</div>
-              <div class="label">Taxa de Satisfação</div>
-            </div>
-            <div class="numero-card">
-              <div class="numero">50+</div>
-              <div class="label">Parceiros Premium</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
 
-  <footer class="site-footer">
-    <p data-translate="footerCopyright">&copy; 2025 Flajutour. Todos os direitos reservados.</p>
-    <p data-translate="footerContact">Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
-    <p><a href="politica-de-privacidade.html" data-translate="privacyLink">Política de Privacidade</a></p>
-  </footer>
-  <script src="load-header.js"></script>
+        <section class="section container">
+            <h2 style="text-align: center;">As Mentes por Trás da Experiência</h2>
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <img src="assets/flavia.png" alt="Foto de Flávia Cristina, sócia da Flajutour.">
+                    <h3 data-translate="flaviaName">Flávia Cristina</h3>
+                    <p data-translate="flaviaBio">
+                        Psicóloga, pedagoga, educadora e guia de turismo, apaixonada por arte e cultura. Flávia é a mente por trás dos roteiros exclusivos, garantindo que cada cliente tenha uma experiência única e enriquecedora.
+                    </p>
+                    <ul>
+                        <li>Turismo Cultural</li>
+                        <li>Arte & História</li>
+                        <li>Roteiros Personalizados</li>
+                    </ul>
+                </div>
+                <div class="founder-card">
+                    <img src="assets/jc.png" alt="Foto de Julio Cesar, sócio da Flajutour.">
+                    <h3 data-translate="julioName">Julio Cesar</h3>
+                    <p data-translate="julioBio">
+                        Consultor de marketing e especialista em mobilidade urbana. Com anos de experiência em logística, Julio garante uma operação eficiente, segura e pontual para todos os roteiros.
+                    </p>
+                    <ul>
+                        <li>Mobilidade Urbana</li>
+                        <li>Logística Premium</li>
+                        <li>Turismo de Negócios</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about-numbers" class="section">
+            <div class="container">
+                <h2 style="text-align: center;">Nossa Dedicação em Números</h2>
+                 <div class="numbers-grid">
+                    <div class="number-card">
+                        <div class="number">15+</div>
+                        <div class="label">Anos de Experiência</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number">500+</div>
+                        <div class="label">Clientes Satisfeitos</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number">98%</div>
+                        <div class="label">Taxa de Satisfação</div>
+                    </div>
+                    <div class="number-card">
+                        <div class="number">50+</div>
+                        <div class="label">Parceiros Premium</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p data-translate="footerCopyright">&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p data-translate="footerContact">Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html" data-translate="privacyLink">Política de Privacidade</a></p>
+    </footer>
+
+    <script src="load-header.js"></script>
+
 </body>
 </html>
