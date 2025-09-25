@@ -1,10 +1,6 @@
 /* ===== ESTILOS UNIFICADOS FLAJUTOUR (Incluindo Correções de Header e Mobile) ===== */
 
 /* ============================================== */
-/* 1. CORREÇÃO: CABEÇALHO FIXO E TRANSPARENTE */
-/* ============================================== */
-
-/* ============================================== */
 /* CSS RESET: ZERA MARGENS PADRÃO DO NAVEGADOR */
 /* ============================================== */
 
@@ -17,20 +13,20 @@ html, body {
 }
 
 /* ============================================== */
-/* 2. AJUSTE FINO DO CABEÇALHO (Para garantir Top: 0) */
+/* 1. CORREÇÃO: CABEÇALHO FIXO E TRANSPARENTE */
 /* ============================================== */
 
 /* Garante que o menu fixo comece exatamente no topo do viewport */
 .site-header { 
     position: fixed;
-    top: 0 !important; /* Força a posição zero para anular qualquer regra conflitante */
+    top: 0 !important; /* CRÍTICO: Força a posição zero para eliminar a linha branca */
     left: 0;
     width: 100%;
     z-index: 1000;
+    transition: background-color 0.3s ease; /* Adicionando transição para suavizar a rolagem */
 }
 
 /* Transparência e Cor Branca na Home */
-/* A classe 'has-transparent-header' é adicionada ao <body> pelo load-header.js */
 body.has-transparent-header .site-header,
 body.has-transparent-header #header-placeholder > * {
     background-color: transparent !important;
@@ -47,9 +43,8 @@ body.has-transparent-header .site-header .nav-item a {
 }
 
 /* Aumenta o padding do Hero para começar 'abaixo' do menu fixo */
-/* Isto evita que o conteúdo principal fique escondido sob o menu */
 #home-hero {
-    padding-top: 8rem !important; /* Aumente este valor se o menu for muito alto */
+    padding-top: 8rem !important; 
 }
 
 /* --- ESTILOS DO INDEX.HTML (Base Original + Correções) --- */
@@ -111,7 +106,7 @@ body.has-transparent-header .site-header .nav-item a {
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
-/* Services Section */
+/* Services Section (Restante do Conteúdo) */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -147,8 +142,6 @@ body.has-transparent-header .site-header .nav-item a {
     text-decoration: none;
     font-weight: 700;
 }
-        
-/* Why Flajutour Section */
 #home-why {
     background-color: var(--bg, #f6f7f8);
 }
@@ -175,8 +168,6 @@ body.has-transparent-header .site-header .nav-item a {
     color: var(--muted, #6b6b6b);
     line-height: 1.6;
 }
-        
-/* Testimonials Section */
 .testimonial-card {
     background-color: var(--bg, #f6f7f8);
     padding: 2.5rem;
@@ -196,8 +187,6 @@ body.has-transparent-header .site-header .nav-item a {
     font-weight: 700;
     color: var(--blue, #009DE2);
 }
-        
-/* CTA Section */
 #home-cta {
     background-color: var(--blue, #009DE2);
     color: #fff;
@@ -211,7 +200,6 @@ body.has-transparent-header .site-header .nav-item a {
     margin: 1rem auto 0; 
     opacity: 0.95;
 }
-/* Estilo do Ícone do WhatsApp Flutuante */
 .whatsapp-icon-cta {
     position: absolute;
     bottom: 24px;
@@ -235,32 +223,85 @@ body.has-transparent-header .site-header .nav-item a {
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* --- MEDIA QUERIES PARA CORREÇÃO MOBILE --- */
 
-@media (max-width: 600px) {
+/* ============================================== */
+/* 2. CORREÇÃO: MENU HAMBURGER E VISIBILIDADE MOBILE */
+/* ============================================== */
+
+/* Oculta o menu mobile e o ícone hamburger por padrão (Desktop) */
+.mobile-nav, 
+.hamburger {
+    display: none; 
+}
+
+@media (max-width: 992px) { 
     
-    /* 1. Responsividade dos Botões do Hero */
+    /* 1. Exibe o ícone Hamburger no Mobile */
+    .hamburger {
+        display: block; 
+        cursor: pointer;
+    }
+
+    /* 2. Oculta o menu de navegação principal (Desktop) no Mobile */
+    .primary-nav {
+        display: none !important;
+    }
+
+    /* 3. Estilo e Visibilidade do Menu Mobile */
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--hero-bg-dark, #2c3e50); /* Cor escura da marca */
+        padding-top: 80px;
+        transform: translateX(100%); /* Oculta o menu para a direita */
+        transition: transform 0.3s ease-in-out;
+        z-index: 999; 
+        display: block; 
+        overflow-y: auto; 
+    }
+
+    /* 4. ESTADO ABERTO: Mostra o menu quando o JS aplica a classe 'open' */
+    .mobile-nav.open {
+        transform: translateX(0); /* Move o menu para a posição visível */
+    }
+
+    /* 5. Bloqueia o Scroll da Página Principal */
+    body.menu-open {
+        overflow: hidden; 
+    }
+
+    /* 6. Estilo dos Links no Menu Mobile */
+    .mobile-nav a {
+        color: #fff;
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
+
+    /* --- AJUSTES FINOS MOBILE --- */
+
     .hero-buttons .btn {
-        width: 100%; /* Força o botão a ocupar a largura total no mobile */
-        margin: 0.5rem 0; /* Adiciona margem vertical para separar os botões */
+        width: 100%; 
+        margin: 0.5rem 0; 
         font-size: 1rem; 
         padding: 12px 24px;
     }
     
-    /* 2. Ajusta espaçamento e margem do conteúdo do Hero */
      #home-hero {
-         padding: 10rem 1rem 6rem; /* Aumenta o padding no topo para garantir espaço do menu fixo */
+         padding: 10rem 1rem 6rem;
          min-height: 60vh;
      }
 
-    /* 3. Ajusta o ícone do WhatsApp para telas menores */
     .whatsapp-icon-cta {
         width: 50px;
         height: 50px;
         font-size: 24px;
     }
-
-    /* 4. Ajusta títulos para telas menores (opcional, mas recomendado) */
+    
     #home-hero h1 {
         font-size: 2.2rem;
     }
