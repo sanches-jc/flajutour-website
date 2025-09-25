@@ -3,34 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo Gastronômico em São Paulo | Flajutour</title>
-    <meta name="description" content="Explore a culinária de São Paulo com roteiros gastronômicos. Descubra restaurantes, mercados e a diversidade de sabores da cidade.">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Gastronomia em São Paulo - Restaurantes, Bares e Sabores | Flajutour</title>
+    <meta name="description" content="Descubra a capital gastronômica do mundo. Com 156 mil bares e restaurantes, São Paulo oferece um roteiro de sabores único que a Flajutour personaliza para você.">
     
+    <link rel="stylesheet" href="css/style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PFEP9B1ERC');
-    </script>
+    
+    <style>
+        /* ===== PÁGINA GASTRONOMIA ===== */
+
+        /* Estilo da seção Hero */
+        #gastro-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/gastro-bg.jpg'); /* SUGESTÃO: Use uma imagem de um prato bem apresentado na pasta assets */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        #gastro-hero h2 {
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
+
+        #gastro-hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: .95;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 1rem auto 0;
+        }
+        
+        /* Estilo do Grid de Cards */
+        .gastro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
+
+        .gastro-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius, 12px);
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--orange, #FC7F39);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gastro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .gastro-card h3 {
+            color: var(--blue, #009DE2);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .gastro-card p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+        }
+        
+        .gastro-card .highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blue, #009DE2);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilo da Seção de Chamada (CTA) */
+        #gastro-cta {
+            background-color: var(--blue, #009DE2);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        #gastro-cta h2 {
+            color: #fff;
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+        }
+
+        #gastro-cta p {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--orange, #FC7F39);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: var(--btn-radius, 10px);
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all .2s ease-in-out;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+    </style>
 </head>
 <body>
+
     <div id="header-placeholder"></div>
 
     <main>
+        <section id="gastro-hero">
+            <div class="container">
+                <h2>São Paulo: A Capital Mundial da Gastronomia</h2>
+                <p>Com 156 mil estabelecimentos e mais de 55 tipos de culinária, a cidade é um convite irrecusável para uma jornada de sabores inesquecíveis.</p>
+            </div>
+        </section>
+
         <section class="section container">
-            <h2 data-translate="pageTitle">Roteiros Gastronômicos em São Paulo</h2>
-            <p data-translate="pageContent">São Paulo é um paraíso para os amantes da boa mesa. Em breve, esta página terá mais conteúdo sobre a culinária local, desde os clássicos de bairro até a alta gastronomia.</p>
+            <div class="gastro-grid">
+                <div class="gastro-card">
+                    <span class="highlight">156 mil</span>
+                    <h3>Portas Abertas ao Sabor</h3>
+                    <p>É o número aproximado de bares, restaurantes e estabelecimentos similares que fazem de São Paulo um dos maiores polos gastronômicos do planeta.</p>
+                </div>
+                <div class="gastro-card">
+                     <span class="highlight">21</span>
+                    <h3>Restaurantes Estrelados</h3>
+                    <p>A cidade abriga 21 restaurantes com estrelas no renomado Guia Michelin, incluindo ícones como D.O.M., Maní e A Casa do Porco.</p>
+                </div>
+                <div class="gastro-card">
+                     <span class="highlight">+55</span>
+                    <h3>Tipos de Culinária</h3>
+                    <p>Da tradicional pizza da Bela Vista à exótica comida asiática da Liberdade, a diversidade cultural da cidade se reflete diretamente no prato.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section container" style="padding-top: 0;">
+             <h2 style="text-align: center; color: var(--blue); font-size: 36px; font-weight: 800; margin-bottom: 2rem;">Explore os Bairros Gastronômicos</h2>
+            <div class="gastro-grid">
+                <div class="gastro-card">
+                    <h3>Alta Gastronomia</h3>
+                    <p>Bairros como <strong>Itaim Bibi</strong> e <strong>Jardins</strong> concentram a sofisticação, com restaurantes premiados, culinária internacional e coquetelaria fina.</p>
+                </div>
+                <div class="gastro-card">
+                    <h3>Boemia e Inovação</h3>
+                    <p>Em <strong>Pinheiros</strong> e <strong>Vila Madalena</strong>, encontre bares descolados, botecos tradicionais, cervejas artesanais e petiscos criativos que ditam tendências.</p>
+                </div>
+                 <div class="gastro-card">
+                    <h3>Tradição e Cultura</h3>
+                    <p>A <strong>Bela Vista</strong> preserva a herança italiana com suas cantinas e pizzarias, enquanto a <strong>Liberdade</strong> é o paraíso da culinária asiática.</p>
+                </div>
+                 <div class="gastro-card">
+                    <h3>A Alma Paulistana</h3>
+                    <p>Explore a cena popular e regional no <strong>Tatuapé</strong>, os points alternativos da <strong>Rua Augusta</strong> e a eclética gastronomia da <strong>Vila Mariana</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gastro-cta">
+            <div class="container">
+                <h2>Seu Roteiro Gastronômico Personalizado</h2>
+                <p>Do boteco tradicional ao restaurante premiado, a Flajutour guia você pelas melhores experiências culinárias de São Paulo. Diga-nos o que você deseja provar, e nós montamos o caminho.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511912293997&text=Olá! Gostaria de montar um roteiro gastronômico em São Paulo." class="cta-button" target="_blank">
+                    Criar Meu Roteiro de Sabores
+                </a>
+            </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p data-translate="footerCopyright">&copy; 2025 Flajutour. Todos os direitos reservados.</p>
-        <p data-translate="footerContact">Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
-        <p><a href="politica-de-privacidade.html" data-translate="privacyLink">Política de Privacidade</a></p>
+        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
     </footer>
 
     <script src="load-header.js"></script>
+
 </body>
 </html>
