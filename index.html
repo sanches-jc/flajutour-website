@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flajutour - Concierge e Turismo Receptivo de Luxo em São Paulo</title>
+    <meta name="description" content="Roteiros de luxo e concierge especializado em Negócios, Cultura, Gastronomia e Bem-Estar. Cuidamos de tudo para você aproveitar o melhor de São Paulo.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+    
+    <style>
+        /* ===== NOVA HOMEPAGE ===== */
+
+        /* Hero Section */
+        #home-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/capanovasite.png'); /* Manter a imagem do Parque Ibirapuera */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 8rem 1rem 6rem;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #home-hero .hero-content {
+            max-width: 850px;
+        }
+        #home-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-weight: 800;
+        }
+        #home-hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            opacity: .95;
+            line-height: 1.6;
+            margin: 1rem auto 2.5rem;
+            max-width: 700px;
+        }
+        .hero-buttons .btn {
+            padding: 14px 32px;
+            border-radius: var(--btn-radius, 10px);
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 0.5rem;
+            transition: all .3s ease;
+        }
+        .hero-buttons .btn-primary {
+            background-color: var(--orange, #FC7F39);
+            color: #fff;
+        }
+        .hero-buttons .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        .hero-buttons .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius, 12px);
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--orange, #FC7F39);
+            text-align: center;
+        }
+        .service-card .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .service-card h3 {
+            color: var(--blue, #009DE2);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .service-card .btn-details {
+            color: var(--orange, #FC7F39);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        /* Why Flajutour Section */
+        #home-why {
+            background-color: var(--bg, #f6f7f8);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding-top: 2rem;
+        }
+        .why-item {
+            text-align: center;
+        }
+        .why-item .icon {
+            font-size: 3rem; /* Requer uma biblioteca de ícones como FontAwesome ou similar */
+            color: var(--blue, #009DE2);
+            margin-bottom: 1rem;
+        }
+         .why-item h3 {
+            font-size: 1.3rem;
+            color: var(--dark, #3C3C3C);
+            margin-bottom: 0.5rem;
+        }
+        .why-item p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonial-card {
+            background-color: var(--bg, #f6f7f8);
+            padding: 2.5rem;
+            border-radius: var(--radius, 12px);
+            text-align: center;
+            max-width: 750px;
+            margin: 2rem auto 0;
+        }
+         .testimonial-card p.quote {
+            font-size: 1.2rem;
+            color: var(--dark, #3C3C3C);
+            line-height: 1.7;
+            font-style: italic;
+        }
+        .testimonial-card .author {
+            margin-top: 1.5rem;
+            font-weight: 700;
+            color: var(--blue, #009DE2);
+        }
+        
+        /* CTA Section */
+        #home-cta {
+            background-color: var(--blue, #009DE2);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        #home-cta h2 { color: #fff; }
+        #home-cta p {
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body class="has-fixed-header">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section id="home-hero">
+            <div class="hero-content">
+                <h1>Sua Experiência Definitiva em São Paulo.</h1>
+                <p>Roteiros de luxo e concierge especializado em Negócios, Cultura, Gastronomia e Bem-Estar. Nós cuidamos de tudo. Você aproveita o melhor.</p>
+                <div class="hero-buttons">
+                    <a href="#home-services" class="btn btn-primary">Descobrir Roteiros</a>
+                    <a href="https://api.whatsapp.com/send?phone=5511912293987" target="_blank" class="btn btn-secondary">Falar com um Especialista</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-services" class="section container">
+            <h2 style="text-align: center;">Concierge Especializado para Cada Objetivo</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="assets/home-card-negocios.jpg" alt="Turismo de Negócios em São Paulo" class="card-image">
+                    <h3>Turismo de Negócios</h3>
+                    <p>Otimize sua agenda. Cuidamos de toda a logística para que você foque 100% em seus resultados.</p>
+                    <a href="negocios.html" class="btn-details">Ver Soluções Corporativas →</a>
+                </div>
+                <div class="service-card">
+                    <img src="assets/home-card-cultura.jpg" alt="Imersão Cultural em São Paulo" class="card-image">
+                    <h3>Imersão Cultural</h3>
+                    <p>Acesse o coração da cena artística paulistana com roteiros que revelam a alma e os segredos da cidade.</p>
+                    <a href="cultura.html" class="btn-details">Explorar Roteiros Culturais →</a>
+                </div>
+                <div class="service-card">
+                    <img src="assets/home-card-gastronomia.jpg" alt="Jornada Gastronômica em São Paulo" class="card-image">
+                    <h3>Jornada Gastronômica</h3>
+                    <p>Dos restaurantes estrelados aos botecos icônicos, um tour guiado pelos sabores que definem São Paulo.</p>
+                    <a href="gastronomia.html" class="btn-details">Descobrir Sabores →</a>
+                </div>
+                <div class="service-card">
+                    <img src="assets/home-card-health.jpg" alt="Saúde e Bem-Estar em São Paulo" class="card-image">
+                    <h3>Saúde e Bem-Estar</h3>
+                    <p>Cuidado e excelência. Organizamos sua viagem de saúde com total discrição, segurança e conforto.</p>
+                    <a href="health-and-care.html" class="btn-details">Conhecer Suporte Health & Care →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-why" class="section">
+            <div class="container">
+                <h2 style="text-align: center;">A Diferença de um Concierge, a Alma de um Paulistano</h2>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <h3>Expertise Profunda</h3>
+                        <p>Não apenas guiamos, nós curamos. Nossos especialistas garantem uma experiência autêntica, longe do superficial.</p>
+                    </div>
+                    <div class="why-item">
+                         <h3>Logística Impecável</h3>
+                        <p>Seu tempo é precioso. Gerenciamos cada detalhe de transporte, agendamentos e reservas com eficiência militar.</p>
+                    </div>
+                    <div class="why-item">
+                        <h3>Atendimento Pessoal</h3>
+                        <p>Cada roteiro é uma história única, desenhada para seus interesses. Nosso atendimento é o nosso maior orgulho.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-testimonials" class="section container">
+            <h2 style="text-align: center;">O Que Nossos Clientes Dizem</h2>
+            <div class="testimonial-card">
+                <p class="quote">"A Flajutour transformou minha viagem de negócios em uma experiência produtiva e sem estresse. A atenção aos detalhes é incomparável. Pela primeira vez, pude aproveitar a cidade mesmo com uma agenda apertada."</p>
+                <p class="author">- Júlia Martins, Diretora de Marketing</p>
+            </div>
+        </section>
+        
+        <section id="home-cta">
+             <div class="container">
+                <h2>Vamos Desenhar a Sua São Paulo Ideal?</h2>
+                <p>Seja para uma agenda de negócios, uma imersão cultural, uma jornada de sabores ou uma viagem de bem-estar, estamos prontos para criar sua experiência perfeita.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511912293987" target="_blank" class="btn btn-primary" style="background-color: #fff; color: var(--blue);">Iniciar Conversa no WhatsApp</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
+    </footer>
+
+    <script src="load-header.js"></script>
+
+</body>
+</html>
