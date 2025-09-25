@@ -10,12 +10,14 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
     
     <style>
-        /* ===== PÁGINA CULTURA (PADRÃO SÃO PAULO) ===== */
+        /* ===== ESTILOS PADRÃO UNIFICADOS (Identidade Consistente) ===== */
+        
+        /* Seção Hero Padrão: Removendo a imagem de fundo para usar o padrão da identidade */
         #page-hero {
-            background-color: var(--hero-bg-dark, #334);
-            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('assets/cultura-bg.jpg');
-            background-size: cover;
-            background-position: center;
+            /* REUTILIZAÇÃO: Fundo escuro padrão da identidade visual */
+            background-color: var(--hero-bg-dark, #2c3e50); 
+            /* REMOVIDO: background-image: linear-gradient(...), url('assets/cultura-bg.jpg'); */
+            /* REMOVIDO: background-size e background-position */
             color: #fff;
             padding: 5rem 1rem;
             text-align: center;
@@ -33,6 +35,7 @@
             line-height: 1.7;
         }
 
+        /* Seção de Conteúdo Padrão (Page-content) */
         #page-content {
             padding: 3rem 0;
             background-color: var(--bg, #f6f7f8);
@@ -54,7 +57,8 @@
             padding: 2rem;
             border-radius: var(--radius, 12px);
             border: 1px solid #f0f0f0;
-            border-bottom: 4px solid var(--orange, #FC7F39);
+            /* CHAVE: Mantendo a borda inferior laranja da identidade visual */
+            border-bottom: 4px solid var(--orange, #FC7F39); 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .info-card:hover {
@@ -71,13 +75,15 @@
             line-height: 1.6;
         }
         .info-card .highlight {
+            /* NOVO: Estilo para destaque de números, consistente com o azul da marca */
             font-size: 2.4rem;
             font-weight: 800;
-            color: var(--blue, #009DE2);
+            color: var(--blue, #009DE2); 
             display: block;
             margin-bottom: 0.5rem;
         }
 
+        /* Seção CTA Padrão (idêntica à primeira página) */
         #page-cta {
             background-color: var(--blue, #009DE2);
             color: #fff;
