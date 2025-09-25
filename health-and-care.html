@@ -3,140 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health and Care | Flajutour</title>
-    <section>
-  <div class="container">
-  <section class="section-container">
-  <div class="container">
-    <h2 class="section-title">Health and Care</h2>
-    <p class="section-lead">
-      São Paulo é reconhecida como a capital da saúde na América do Sul. Com mais de <strong>77 mil médicos</strong> na cidade e centenas de hospitais e clínicas de excelência, a capital paulista atrai milhares de pessoas que buscam tratamentos e procedimentos de alta qualidade.
-    </p>
-    <p class="section-lead">
-      O Brasil se destaca mundialmente pela experiência e reputação de seus profissionais, e a desvalorização do Real frente a moedas estrangeiras torna o custo de procedimentos médicos e estéticos <strong>significativamente mais baixo</strong>, especialmente para pacientes da América do Norte e Europa.
-    </p>
-  </div>
-</section>
+    <title>Turismo de Saúde e Bem-Estar em São Paulo | Flajutour</title>
+    <meta name="description" content="São Paulo é referência em saúde e bem-estar. Conte com a Flajutour para organizar sua viagem com foco em tratamentos médicos, estéticos e bem-estar com total segurança e conforto.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+    
+    <style>
+        /* ===== PÁGINA HEALTH & CARE ===== */
 
-<section class="commitment-section">
-  <div class="container commitment-box">
-    <h3>Nosso Compromisso: A Sua Jornada, a Nossa Rota</h3>
-    <p class="commitment-text">
-      Na Flajutour, nosso foco é cuidar da sua experiência, não da sua saúde. Entendemos que a busca por tratamento médico em outro país exige um suporte logístico e humano completo.
-    </p>
-    <p class="commitment-text">
-      <strong>Importante:</strong> Não somos uma consultoria médica e não indicamos médicos, hospitais ou clínicas. Nossa missão é ser o seu <strong>serviço de concierge especializado em saúde</strong>, cuidando de toda a infraestrutura para que você se concentre apenas no seu bem-estar.
-    </p>
-    <ul class="commitment-list">
-      <li><strong>Logística:</strong> Cuidamos de transferências, agendamentos, transporte e hospedagem em locais estratégicos para o seu tratamento.</li>
-      <li><strong>Acompanhamento:</strong> Coordenamos agendamentos de consultas, exames e procedimentos.</li>
-      <li><strong>Serviços Adicionais:</strong> Fazemos a busca e a entrega de medicamentos e materiais hospitalares.</li>
-      <li><strong>Cuidado Pós-Cirúrgico:</strong> Oferecemos acompanhamento pós-operatório com enfermeiras credenciadas pelo COREN-SP, garantindo a sua segurança e conforto na recuperação.</li>
-    </ul>
-  </div>
-</section>
+        /* Estilo da seção Hero */
+        #health-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/health-bg.jpg'); /* SUGESTÃO: Use uma imagem clean de uma recepção de clínica moderna na pasta assets */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
 
-<section class="cta-section">
-  <div class="container text-center">
-    <h3>Números Grandes Exigem uma Expertise à Altura.</h3>
-    <p>Não se perca na imensidão de São Paulo. Deixe a Flajutour traçar a rota perfeita para seu tratamento.</p>
-    <a href="https://wa.me/5511911293987" target="_blank" class="btn-whatsapp">
-      Fale Conosco pelo WhatsApp
-    </a>
-  </div>
-</section>
+        #health-hero h2 {
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+        }
 
-<style>
-/* Estilos para a página */
-body {
-  font-family: Arial, sans-serif;
-  color: #3C3C3C;
-  line-height: 1.6;
-}
-.section-container {
-  padding: 36px 0;
-}
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 28px;
-}
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #009DE2;
-    margin-bottom: 1rem;
-}
-.section-lead {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 1.5rem;
-    color: #6b6b6b;
-}
+        #health-hero p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            opacity: .95;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 1rem auto 0;
+        }
+        
+        /* Estilo do Grid de Cards */
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
+        }
 
-/* Estilos para a caixa de compromisso (o bloco de destaque) */
-.commitment-section {
-    background-color: #f6f7f8;
-    padding: 3rem 0;
-}
-.commitment-box {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    padding: 2.5rem;
-    border-left: 5px solid #FF7A29;
-}
-.commitment-box h3 {
-    color: #FF7A29;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-.commitment-box .commitment-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-.commitment-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 1.5rem;
-}
-.commitment-list li {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF7A29"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>') no-repeat left center;
-    background-size: 20px;
-    padding-left: 28px;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
+        .health-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius, 12px);
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid var(--orange, #FC7F39);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Estilos para o CTA */
-.cta-section {
-    background-color: #009DE2;
-    color: #fff;
-    padding: 4rem 0;
-    text-align: center;
-}
-.cta-section h3 {
-    color: #fff;
-    font-size: 2rem;
-}
-.btn-whatsapp {
-    background-color: #25D366;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 1.5rem;
-    transition: background-color 0.3s ease;
-}
-.btn-whatsapp:hover {
-    background-color: #1DA851;
-}
-.text-center {
-    text-align: center;
-}
+        .health-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .health-card h3 {
+            color: var(--blue, #009DE2);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .health-card p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+        }
+        
+        .health-card .highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blue, #009DE2);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilo da Seção de Chamada (CTA) */
+        #health-cta {
+            background-color: var(--blue, #009DE2);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        #health-cta h2 {
+            color: #fff;
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+        }
+
+        #health-cta p {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--orange, #FC7F39);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: var(--btn-radius, 10px);
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all .2s ease-in-out;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section id="health-hero">
+            <div class="container">
+                <h2>Saúde e Bem-Estar em São Paulo</h2>
+                <p>Descubra por que a cidade é o principal destino da América Latina para tratamentos de saúde, unindo infraestrutura de ponta, especialistas renomados e um acolhimento completo.</p>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="health-grid">
+                <div class="health-card">
+                    <span class="highlight">+2.500</span>
+                    <h3>Centros de Excelência</h3>
+                    <p>Uma vasta rede com cerca de 205 hospitais e mais de 2.500 centros médicos, clínicas e laboratórios com tecnologia de ponta.</p>
+                </div>
+                <div class="health-card">
+                    <span class="highlight">+12 mil</span>
+                    <h3>Visitantes Internacionais</h3>
+                    <p>Anualmente, milhares de estrangeiros escolhem São Paulo para seus tratamentos, atraídos pela qualidade e pelos custos competitivos.</p>
+                </div>
+                <div class="health-card">
+                    <h3>Referência em Estética</h3>
+                    <p>A cidade concentra milhares de clínicas de estética avançada em bairros como Jardins e Itaim Bibi, oferecendo os mais modernos procedimentos.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section container" style="padding-top: 0;">
+             <h2 style="text-align: center; color: var(--blue); font-size: 36px; font-weight: 800; margin-bottom: 2rem;">Suporte Completo para sua Jornada de Saúde</h2>
+            <div class="health-grid">
+                <div class="health-card">
+                    <h3>Acesso aos Melhores Centros</h3>
+                    <p>Auxiliamos na conexão com a rede de hospitais, clínicas e especialistas mais adequados para suas necessidades de saúde e bem-estar.</p>
+                </div>
+                <div class="health-card">
+                    <h3>Logística e Conforto</h3>
+                    <p>Cuidamos de toda a logística de transporte, hospedagem e agendamentos, garantindo uma estadia tranquila e focada na sua recuperação.</p>
+                </div>
+                 <div class="health-card">
+                    <h3>Concierge Pessoal</h3>
+                    <p>Oferecemos serviços de apoio como tradutores, acompanhantes e organização de atividades de lazer adaptadas ao seu período de recuperação.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="health-cta">
+            <div class="container">
+                <h2>Foque na sua Recuperação. Nós Cuidamos do Resto.</h2>
+                <p>A Flajutour organiza toda a logística da sua viagem de saúde a São Paulo, desde a chegada até o retorno. Entre em contato e tenha uma experiência segura, confortável e tranquila.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511912293997&text=Olá! Gostaria de informações sobre o suporte para turismo de saúde em São Paulo." class="cta-button" target="_blank">
+                    Solicitar Suporte
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
+    </footer>
+
+    <script src="load-header.js"></script>
 
 </body>
 </html>
