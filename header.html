@@ -1,41 +1,30 @@
 <style>
-  :root{ --header-h:72px; --accent:#ff7a2d; --text-dark:#1e2a33; }
+  :root{ --header-h:72px; --accent:#ff7a2d; --text-dark:#1e2a33; --hero-bg-dark: #2c3e50; }
 
-  /* espaço reservado no body para o header fixo */
   .has-fixed-header { padding-top: var(--header-h); }
-  /* Remove o padding-top na home para a imagem ficar sob o cabeçalho */
-  .has-transparent-header { padding-top: 0; }
+  body.is-homepage { padding-top: 0; }
 
   .site-header{
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--header-h);
-    z-index: 1000;
-    display:block;
-    transition: background .25s ease, color .2s ease, box-shadow .25s ease;
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--header-h); z-index: 1000; display:block;
+    transition: background .25s ease, box-shadow .25s ease;
     background: #ffffff;
     box-shadow: 0 1px 0 rgba(0,0,0,0.04);
   }
   .site-header .header-inner{
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-    display:flex;
-    align-items:center;
-    gap:1rem;
-    padding:0 1rem;
-    justify-content: space-between;
+    max-width: 1200px; margin: 0 auto; height: 100%;
+    display:flex; align-items:center; gap:1rem;
+    padding:0 1rem; justify-content: space-between;
   }
   .site-header .logo{ height:44px; display:block; flex-shrink:0; }
 
-  .primary-nav {
-    display:flex; align-items:center; gap:1rem; flex-wrap: nowrap; white-space: nowrap; margin-left: 1rem;
-  }
+  .primary-nav { display:flex; align-items:center; gap:1rem; flex-wrap: nowrap; white-space: nowrap; margin-left: auto; }
   .primary-nav a { color: var(--text-dark); text-decoration:none; font-weight:600; padding:6px 8px; flex-shrink:0; transition: color 0.2s ease; }
 
+  .nav-actions { display:flex; gap:0.6rem; align-items:center; margin-left: 1rem; }
   .btn-login { background: var(--accent); color:#fff; padding:8px 12px; border-radius:8px; font-weight:700; text-decoration:none; }
 
-  .hamburger { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; background:rgba(0,0,0,0.06); border-radius:8px; cursor:pointer; margin-left:8px; z-index:110; border: 0; }
+  .hamburger { display:none; align-items:center; justify-content:center; width:42px; height:42px; background:rgba(0,0,0,0.06); border-radius:8px; cursor:pointer; z-index:110; border: 0; }
   .hamburger span, .hamburger span::before, .hamburger span::after { display:block; background:var(--text-dark); height:2px; width:18px; border-radius:2px; position:relative; transition: background 0.2s ease; }
   .hamburger span::before, .hamburger span::after { content:""; position:absolute; left:0; }
   .hamburger span::before{ top:-6px; } .hamburger span::after{ top:6px; }
@@ -45,23 +34,20 @@
   .mobile-nav a { color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; display:block; }
   .mobile-nav a:hover { background: rgba(255,255,255,0.04); }
 
-  /* VARIANTE TRANSPARENTE (ativada via JS) */
+  /* VARIANTE TRANSPARENTE */
   .site-header.transparent {
-    background: transparent;
-    box-shadow: none;
+    background: transparent; box-shadow: none;
   }
   .site-header.transparent .primary-nav a,
   .site-header.transparent .btn-login { 
-    color: #fff; 
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3); 
+    color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.3); 
   }
   .site-header.transparent .hamburger { background: rgba(0,0,0,0.28); }
-  .site-header.transparent .hamburger span,
-  .site-header.transparent .hamburger span::before,
-  .site-header.transparent .hamburger span::after { background: #fff; }
+  .site-header.transparent .hamburger span, .site-header.transparent .hamburger span::before, .site-header.transparent .hamburger span::after { background: #fff; }
 
-  @media (max-width:920px){
-    .primary-nav { display: none; } /* Esconde o menu principal em telas menores */
+  @media (max-width:1024px){
+    .primary-nav { display: none; }
+    .hamburger { display:inline-flex; }
   }
 </style>
 
@@ -70,16 +56,15 @@
     <a href="index.html"><img src="assets/logo-flajutour.png" alt="Logo Flajutour" class="logo"></a>
 
     <nav class="primary-nav" role="navigation" aria-label="Menu principal">
-      <a href="index.html" data-core="1">Home</a>
-      <a href="sao-paulo.html" data-core="1">São Paulo</a>
-      <a href="negocios.html" data-core="1">Negócios</a>
-      <a href="cultura.html" data-core="1">Cultura</a>
-      <a href="gastronomia.html" data-core="1">Gastronomia</a>
-      <a href="health-and-care.html" data-core="1">Health and Care</a>
-      <a href="quemsomos.html">Quem Somos</a>
+      <a href="index.html">Home</a>
+      <a href="sao-paulo.html">São Paulo</a>
+      <a href="negocios.html">Negócios</a>
+      <a href="cultura.html">Cultura</a>
+      <a href="gastronomia.html">Gastronomia</a>
+      <a href="health-and-care.html">Health and Care</a>
     </nav>
 
-    <div style="margin-left:auto; display:flex; gap:0.6rem; align-items:center;">
+    <div class="nav-actions">
       <a href="login.html" class="btn-login">Login</a>
       <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" type="button"><span></span></button>
     </div>
@@ -100,18 +85,20 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.site-header');
-    const isTransparentPage = document.body.classList.contains('has-transparent-header');
-
-    // Lógica da transparência do cabeçalho
-    if (isTransparentPage && header) {
+    const body = document.body;
+    
+    // Lógica da transparência do cabeçalho (MAIS INTELIGENTE)
+    const isHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
+    if (isHomepage && header) {
+        body.classList.add('is-homepage');
         const toggleTransparency = () => {
-            if (window.scrollY > 50) { // Torna sólido após rolar 50px
+            if (window.scrollY > 50) {
                 header.classList.remove('transparent');
             } else {
                 header.classList.add('transparent');
             }
         };
-        toggleTransparency(); // Verifica o estado inicial
+        toggleTransparency();
         window.addEventListener('scroll', toggleTransparency);
     }
     
@@ -121,8 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburger && mobileNav) {
         hamburger.addEventListener('click', () => {
             mobileNav.classList.toggle('open');
-            const isExpanded = mobileNav.classList.contains('open');
-            hamburger.setAttribute('aria-expanded', isExpanded);
+            hamburger.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
         });
     }
 });
