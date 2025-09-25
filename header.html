@@ -3,6 +3,8 @@
 
   /* espaço reservado no body para o header fixo */
   .has-fixed-header { padding-top: var(--header-h); }
+  /* Remove o padding-top na home para a imagem ficar sob o cabeçalho */
+  .has-transparent-header { padding-top: 0; }
 
   .site-header{
     position: fixed;
@@ -10,9 +12,9 @@
     height: var(--header-h);
     z-index: 1000;
     display:block;
-    transition: background .22s ease, color .18s ease, box-shadow .2s ease;
+    transition: background .25s ease, color .2s ease, box-shadow .25s ease;
+    background: #ffffff;
     box-shadow: 0 1px 0 rgba(0,0,0,0.04);
-    background: #ffffff; /* padrão (subpáginas): fundo claro, textos escuros */
   }
   .site-header .header-inner{
     max-width: 1200px;
@@ -26,16 +28,15 @@
   }
   .site-header .logo{ height:44px; display:block; flex-shrink:0; }
 
-  /* nav padrão (texto escuro) */
   .primary-nav {
     display:flex; align-items:center; gap:1rem; flex-wrap: nowrap; white-space: nowrap; margin-left: 1rem;
   }
-  .primary-nav a { color: var(--text-dark); text-decoration:none; font-weight:600; padding:6px 8px; flex-shrink:0; }
+  .primary-nav a { color: var(--text-dark); text-decoration:none; font-weight:600; padding:6px 8px; flex-shrink:0; transition: color 0.2s ease; }
 
   .btn-login { background: var(--accent); color:#fff; padding:8px 12px; border-radius:8px; font-weight:700; text-decoration:none; }
 
   .hamburger { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; background:rgba(0,0,0,0.06); border-radius:8px; cursor:pointer; margin-left:8px; z-index:110; border: 0; }
-  .hamburger span, .hamburger span::before, .hamburger span::after { display:block; background:var(--text-dark); height:2px; width:18px; border-radius:2px; position:relative; }
+  .hamburger span, .hamburger span::before, .hamburger span::after { display:block; background:var(--text-dark); height:2px; width:18px; border-radius:2px; position:relative; transition: background 0.2s ease; }
   .hamburger span::before, .hamburger span::after { content:""; position:absolute; left:0; }
   .hamburger span::before{ top:-6px; } .hamburger span::after{ top:6px; }
 
@@ -44,24 +45,23 @@
   .mobile-nav a { color:#fff; text-decoration:none; padding:8px 10px; border-radius:6px; display:block; }
   .mobile-nav a:hover { background: rgba(255,255,255,0.04); }
 
-  /* VARIANTE TRANSPARENTE (para páginas com hero) */
+  /* VARIANTE TRANSPARENTE (ativada via JS) */
   .site-header.transparent {
-    background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.06));
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: transparent;
     box-shadow: none;
   }
   .site-header.transparent .primary-nav a,
-  .site-header.transparent .hamburger span,
-  .site-header.transparent .btn-login { color: #fff; }
+  .site-header.transparent .btn-login { 
+    color: #fff; 
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3); 
+  }
   .site-header.transparent .hamburger { background: rgba(0,0,0,0.28); }
   .site-header.transparent .hamburger span,
   .site-header.transparent .hamburger span::before,
   .site-header.transparent .hamburger span::after { background: #fff; }
 
-  /* responsividade (ajustes mínimos) */
   @media (max-width:920px){
-    .primary-nav { gap:0.6rem; margin-left: .6rem; }
+    .primary-nav { display: none; } /* Esconde o menu principal em telas menores */
   }
 </style>
 
@@ -76,6 +76,7 @@
       <a href="cultura.html" data-core="1">Cultura</a>
       <a href="gastronomia.html" data-core="1">Gastronomia</a>
       <a href="health-and-care.html" data-core="1">Health and Care</a>
+      <a href="quemsomos.html">Quem Somos</a>
     </nav>
 
     <div style="margin-left:auto; display:flex; gap:0.6rem; align-items:center;">
@@ -84,8 +85,45 @@
     </div>
 
     <nav class="mobile-nav" role="navigation" aria-label="Menu móvel">
+      <a href="index.html">Home</a>
+      <a href="sao-paulo.html">São Paulo</a>
+      <a href="negocios.html">Negócios</a>
+      <a href="cultura.html">Cultura</a>
+      <a href="gastronomia.html">Gastronomia</a>
+      <a href="health-and-care.html">Health and Care</a>
+      <hr style="border-color: rgba(255,255,255,0.2);">
       <a href="quemsomos.html">Quem Somos</a>
-      <a href="politica-de-privacidade.html">Política de Privacidade</a>
     </nav>
   </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.site-header');
+    const isTransparentPage = document.body.classList.contains('has-transparent-header');
+
+    // Lógica da transparência do cabeçalho
+    if (isTransparentPage && header) {
+        const toggleTransparency = () => {
+            if (window.scrollY > 50) { // Torna sólido após rolar 50px
+                header.classList.remove('transparent');
+            } else {
+                header.classList.add('transparent');
+            }
+        };
+        toggleTransparency(); // Verifica o estado inicial
+        window.addEventListener('scroll', toggleTransparency);
+    }
+    
+    // Lógica do menu hamburger
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            const isExpanded = mobileNav.classList.contains('open');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+        });
+    }
+});
+</script>
