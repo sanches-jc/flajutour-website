@@ -1,341 +1,151 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conheça São Paulo - Roteiros Personalizados | Flajutour</title>
+    <meta name="description" content="Explore a diversidade de São Paulo com roteiros de turismo cultural, gastronômico e de lazer. Descubra os melhores pontos turísticos com a Flajutour.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+    
+    <style>
+        /* CSS para o Grid de Informações */
+        .stats-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; /* Espaçamento entre os cards */
+            padding: 2rem 0;
+        }
 
-    <meta charset="UTF-8">
+        .stat-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: var(--radius, 12px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
 
-    <title>Conheça São Paulo - Roteiros Personalizados | Flajutour</title>
+        .stat-card h3 {
+            color: var(--blue, #009DE2);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
 
-    <meta name="description" content="Explore a diversidade de São Paulo com roteiros de turismo cultural, gastronômico e de lazer. Descubra os melhores pontos turísticos com a Flajutour.">
+        .stat-card p {
+            color: var(--muted, #6b6b6b);
+            line-height: 1.6;
+        }
 
-    <link rel="stylesheet" href="css/style.css">
+        /* CSS para a Seção de Chamada (CTA) */
+        .cta-section {
+            background-color: var(--blue, #009DE2);
+            color: #fff;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFEP9B1ERC"></script>
+        .cta-section h3 {
+            color: #fff;
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            font-weight: 700;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-    <!-- REMOVIDO: script de load inline -->
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
 
+        .btn-whatsapp:hover {
+            background-color: #1DA851;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- substituído header estático por placeholder -->
-
-  <div id="header-placeholder"></div>
-
-
-
-  <main>
-
-    <section class="section container">
-
-      <h2>São Paulo: A Cidade que Nunca Para</h2>
-
-    <section>
-
-<section>
-
-  <div class="stats-grid-container">
-
-    
-
-    <div class="stat-card">
-
-      <h3>Economia Gigante</h3>
-
-      <p>Com um PIB de <strong>R$ 3,5 trilhões</strong> (2024), o estado de São Paulo é uma das maiores economias do mundo, superando a de muitos países.</p>
-
-    </div>
-
-
-
-    <div class="stat-card">
-
-      <h3>População</h3>
-
-      <p>São mais de <strong>11,9 milhões de habitantes</strong> na capital, o que a torna a cidade mais populosa do Brasil.</p>
-
-    </div>
-
-
-
-    <div class="stat-card">
-
-      <h3>Negócios</h3>
-
-      <p>O estado abriga mais de <strong>6 milhões de empresas ativas</strong>, um ecossistema de negócios que atrai investidores e profissionais de todo o mundo.</p>
-
-    </div>
-
-
-
-    <div class="stat-card">
-
-      <h3>Mobilidade</h3>
-
-      <p>Com uma frota de <strong>34,3 milhões de veículos</strong>, a cidade tem uma complexa dinâmica de trânsito, o que torna a consultoria de logística da Flajutour um serviço essencial.</p>
-
-    </div>
-
-
-
-    <div class="stat-card">
-
-      <h3>Turismo</h3>
-
-      <p>Em <strong>2024</strong>, São Paulo recebeu mais de <strong>35 milhões de turistas nacionais e 2 milhões de estrangeiros</strong>, reforçando sua posição como um dos principais destinos para viagens de lazer e negócios.</p>
-
-    </div>
-
-
-
-    <div class="stat-card">
-
-      <h3>Hospedagem</h3>
-
-      <p>Com cerca de <strong>410 hotéis e 46 mil apartamentos</strong> disponíveis, a cidade oferece uma ampla gama de opções para todos os tipos de viajantes.</p>
-
-    </div>
-
-    
-
-    <div class="stat-card">
-
-      <h3>Consumo e Lazer</h3>
-
-      <p>Para atender a essa demanda, a cidade conta com <strong>mais de 190 shoppings centers</strong> e centenas de espaços para eventos, convenções e feiras, que a tornam o principal polo de eventos da América Latina.</p>
-
-    </div>
-
-    
-
-  </div>
-
-</section>
-
-
-
-<style>
-
-.stats-grid-container {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 2rem;
-
-    padding: 3rem 0;
-
-}
-
-.stat-card {
-
-    background-color: #fff;
-
-    padding: 2rem;
-
-    border-radius: 10px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    border: 1px solid #eee;
-
-}
-
-.stat-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-
-}
-
-.stat-card h3 {
-
-    color: #009DE2;
-
-    font-size: 1.5rem;
-
-    margin-bottom: 0.5rem;
-
-}
-
-.stat-card p {
-
-    color: #3C3C3C;
-
-}
-
-</style>
-
-
-
-<section class="cta-section">
-
-  <div class="container text-center">
-
-    <h3>Números Grandes Exigem uma Expertise à Altura.</h3>
-
-    <p>Não se perca na imensidão de São Paulo. Deixe a Flajutour traçar a rota perfeita para sua viagem.</p>
-
-    <a href="https://wa.me/5511911293987" target="_blank" class="btn-whatsapp">
-
-      Fale Conosco pelo WhatsApp
-
-    </a>
-
-  </div>
-
-</section>
-
-
-
-<style>
-
-/* CSS Básico para o novo layout */
-
-.stats-grid-container {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 2rem;
-
-    padding: 3rem 0;
-
-}
-
-.stat-card {
-
-    background-color: #fff;
-
-    padding: 2rem;
-
-    border-radius: 10px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    border: 1px solid #eee;
-
-}
-
-.stat-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-
-}
-
-.stat-card h3 {
-
-    color: #009DE2;
-
-    font-size: 1.5rem;
-
-    margin-bottom: 0.5rem;
-
-}
-
-.stat-card p {
-
-    color: #3C3C3C;
-
-}
-
-.cta-section {
-
-    background-color: #009DE2;
-
-    color: #fff;
-
-    padding: 4rem 0;
-
-    text-align: center;
-
-}
-
-.cta-section h3 {
-
-    color: #fff;
-
-    font-size: 2rem;
-
-}
-
-.btn-whatsapp {
-
-    background-color: #25D366;
-
-    color: white;
-
-    padding: 1rem 2rem;
-
-    border-radius: 50px;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    display: inline-block;
-
-    margin-top: 1.5rem;
-
-    transition: background-color 0.3s ease;
-
-}
-
-.btn-whatsapp:hover {
-
-    background-color: #1DA851;
-
-}
-
-.lead-text {
-
-    font-size: 1.2rem;
-
-    color: #6b6b6b;
-
-    max-width: 800px;
-
-    margin: 0 auto 2rem;
-
-}
-
-.text-center {
-
-    text-align: center;
-
-}
-
-</style>
-
-  <footer class="site-footer">
-
-    <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
-
-    <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
-
-    <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
-
-  </footer>
-
-
-
-  <!-- loader do header -->
-
-  <script src="load-header.js"></script>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="section container">
+            <h2 style="text-align: center;">São Paulo: A Cidade que Nunca Para</h2>
+
+            <div class="stats-grid-container">
+                <div class="stat-card">
+                    <h3>Economia Gigante</h3>
+                    <p>Com um PIB de <strong>R$ 3,5 trilhões</strong> (2024), o estado de São Paulo é uma das maiores economias do mundo, superando a de muitos países.</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>População</h3>
+                    <p>São mais de <strong>11,9 milhões de habitantes</strong> na capital, o que a torna a cidade mais populosa do Brasil.</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Negócios</h3>
+                    <p>O estado abriga mais de <strong>6 milhões de empresas ativas</strong>, um ecossistema de negócios que atrai investidores e profissionais de todo o mundo.</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Mobilidade</h3>
+                    <p>Com uma frota de <strong>34,3 milhões de veículos</strong>, a cidade tem uma complexa dinâmica de trânsito, o que torna a consultoria de logística da Flajutour um serviço essencial.</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Turismo</h3>
+                    <p>Em <strong>2024</strong>, São Paulo recebeu mais de <strong>35 milhões de turistas nacionais e 2 milhões de estrangeiros</strong>, reforçando sua posição como um dos principais destinos para viagens de lazer e negócios.</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Hospedagem</h3>
+                    <p>Com cerca de <strong>410 hotéis e 46 mil apartamentos</strong> disponíveis, a cidade oferece uma ampla gama de opções para todos os tipos de viajantes.</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Consumo e Lazer</h3>
+                    <p>Para atender a essa demanda, a cidade conta com <strong>mais de 190 shoppings centers</strong> e centenas de espaços para eventos, convenções e feiras.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container text-center">
+                <h3>Números Grandes Exigem uma Expertise à Altura.</h3>
+                <p>Não se perca na imensidão de São Paulo. Deixe a Flajutour traçar a rota perfeita para sua viagem.</p>
+                <a href="https://wa.me/5511912293987" target="_blank" class="btn-whatsapp">
+                    Fale Conosco pelo WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Flajutour. Todos os direitos reservados.</p>
+        <p>Contato: +55 (11) 2367-3909 | WhatsApp: +55 (11) 91129-3987</p>
+        <p><a href="politica-de-privacidade.html">Política de Privacidade</a></p>
+    </footer>
+
+    <script src="load-header.js"></script>
 
 </body>
-
 </html>
