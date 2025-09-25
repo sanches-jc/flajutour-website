@@ -42,13 +42,22 @@
             margin: 1rem auto 2.5rem;
             max-width: 700px;
         }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
         .hero-buttons .btn {
             padding: 14px 32px;
             border-radius: var(--btn-radius, 10px);
             text-decoration: none;
             font-weight: 700;
-            margin: 0 0.5rem;
+            margin: 0;
             transition: all .3s ease;
+            display: inline-block;
+            text-align: center;
         }
         .hero-buttons .btn-primary {
             background-color: var(--orange, #FC7F39);
@@ -62,6 +71,23 @@
         .hero-buttons .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile responsiveness for hero buttons */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            #home-hero {
+                padding: 6rem 1rem 4rem;
+            }
         }
 
         /* Services Section */
